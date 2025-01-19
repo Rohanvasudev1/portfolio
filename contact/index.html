@@ -41,6 +41,50 @@
             padding: 20px;
             margin-inline: max(1em, (100% - 100ch) / 2);
         }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: auto 1fr; 
+            gap: 10px; 
+            align-items: center;
+        }
+
+        label {
+            text-align: right; 
+            padding-right: 10px;
+            font-weight: bold;
+        }
+
+        input, textarea, button {
+            font: inherit; 
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical; 
+        }
+
+        button {
+            grid-column: 2; 
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
         
         
     </style>
