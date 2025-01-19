@@ -13,17 +13,22 @@
             padding: 20px;
             margin-inline: max(1em, (100% - 100ch) / 2);
         }
+        nav ul,
+        nav li {
+            display: contents; /* Remove default styling of ul and li */
+        }
         
     </style>
 </head>
 <body>
     <nav>
-        <a href="../index.html">Home</a>
-        <a href="../projects/index.html">Projects</a>
-        <a href="../contact/index.html">Contact</a>
-        <a href="resume.html">Resume</a>
-        
-        <a href="https://github.com/rohanvasudev1" target="_blank">GitHub</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects/index.html">Projects</a></li>
+            <li><a href="contact/index.html">Contact</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="https://github.com/rohanvasudev1" target="_blank">GitHub</a></li>
+        </ul>
     </nav>
     <h1>Resume</h1>
     <section>
