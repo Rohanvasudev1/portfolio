@@ -5,6 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohan Vasudev: Personal site and portfolio</title>
     <style>
+        nav {
+            display: flex; 
+            gap: 10px; 
+            background-color: #f4f4f4; 
+            padding: 10px; 
+            border-bottom: 2px solid #ddd; 
+        }
+
+        nav a {
+            flex: 1; 
+            text-align: center; 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: bold; 
+            padding: 10px 0; 
+            transition: background-color 0.3s, color 0.3s; 
+        }
+
+        nav a:hover {
+            color: #007bff; 
+            background-color: #f0f0f0; 
+        }
+
+        nav a.current {
+            color: white; 
+            background-color: #007bff; 
+            border-radius: 5px; 
+        }
+        
         body {
             margin: 8px; 
             display: block; 
@@ -12,23 +41,19 @@
             padding: 20px;
             margin-inline: max(1em, (100% - 100ch) / 2);
         }
-        nav ul,
-        nav li {
-            display: contents; /* Remove default styling of ul and li */
-        }
+        
         
     </style>
 </head>
 <body>
     <nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects/index.html">Projects</a></li>
-        <li><a href="contact/index.html">Contact</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="https://github.com/rohanvasudev1" target="_blank">GitHub</a></li>
-    </ul>
+        <a href="index.html" class="current">Home</a>
+        <a href="projects/index.html">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact/index.html">Contact</a>
+        <a href="https://github.com/rohanvasudev1" target="_blank">GitHub</a>
     </nav>
+
 
     <h1>Rohan S Vasudev</h1>
     <p>Hello! I am a Mathematics - Computer Science major at UCSD</p>
