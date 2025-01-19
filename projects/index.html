@@ -41,10 +41,11 @@
             margin-inline: max(1em, (100% - 100ch) / 2);
         }
 
-        projects {
+        .projects {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-rows: subgrid; 
+            gap: 1em; 
         }
 
         .projects article {
@@ -53,6 +54,7 @@
             border-radius: 8px;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            grid-row: span 3; 
         }
 
         .projects img {
@@ -61,6 +63,19 @@
             display: block;
             margin-bottom: 10px;
             border-radius: 8px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.1; 
+            text-wrap: balance; 
+        }
+
+        h1 {
+            font-size: 400%; 
+        }
+
+        h2 {
+            margin: 0;
         }
         
     </style>
