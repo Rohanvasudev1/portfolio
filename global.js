@@ -65,9 +65,9 @@ themeSwitcher.addEventListener("input", function (event) {
   const selectedTheme = event.target.value;
 
   if (selectedTheme === "auto") {
-    rootElement.style.setProperty("color-scheme", "light dark"); 
+    rootElement.style.setProperty("color-scheme", "light dark");
   } else {
-    rootElement.style.setProperty("color-scheme", selectedTheme); 
+    rootElement.style.setProperty("color-scheme", selectedTheme);
   }
 
   console.log("Color scheme changed to:", selectedTheme);
