@@ -4,7 +4,6 @@ function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
-// Pages for navigation
 const pages = [
   { url: "index.html", title: "Home" },
   { url: "projects/index.html", title: "Projects" },
@@ -13,10 +12,8 @@ const pages = [
   { url: "https://github.com/rohanvasudev1", title: "GitHub" },
 ];
 
-// Determine if we're on the home page
 const ARE_WE_HOME = document.documentElement.classList.contains("home");
 
-// Create navigation bar
 const nav = document.createElement("nav");
 document.body.prepend(nav);
 
@@ -48,7 +45,6 @@ for (let p of pages) {
   nav.append(a);
 }
 
-// Add theme switcher
 document.body.insertAdjacentHTML(
   "afterbegin",
   `
@@ -68,21 +64,23 @@ const rootElement = document.documentElement;
 function updateTheme(selectedTheme) {
   if (selectedTheme === "auto") {
     rootElement.style.setProperty("color-scheme", "light dark");
-    document.body.style.backgroundColor = getComputedStyle(rootElement).getPropertyValue("--background-color").trim();
-    document.body.style.color = getComputedStyle(rootElement).getPropertyValue("--text-color").trim();
+    document.body.style.backgroundColor = "";
+    document.body.style.color = "";
   } else {
     rootElement.style.setProperty("color-scheme", selectedTheme);
-    document.body.style.backgroundColor = selectedTheme === "dark" ? "#121212" : "#f4f4f4";
-    document.body.style.color = selectedTheme === "dark" ? "#f4f4f4" : "#000";
   }
+
+  localStorage.setItem("theme", selectedTheme);
 }
 
+const savedTheme = localStorage.getItem("theme");
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-themeSwitcher.value = prefersDark ? "dark" : "light";
-updateTheme(themeSwitcher.value);
+const initialTheme = savedTheme || (prefersDark ? "dark" : "auto");
+
+themeSwitcher.value = initialTheme;
+updateTheme(initialTheme);
 
 themeSwitcher.addEventListener("input", function (event) {
   const selectedTheme = event.target.value;
   updateTheme(selectedTheme);
-  console.log("Color scheme changed to:", selectedTheme);
 });
