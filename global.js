@@ -18,16 +18,21 @@ const ARE_WE_HOME = document.documentElement.classList.contains("home");
 const nav = document.createElement("nav");
 document.body.prepend(nav);
 
-
 for (let p of pages) {
   let url = p.url;
   let title = p.title;
 
   const isAbsoluteUrl = url.startsWith("http");
-  
+
 
   if (!isAbsoluteUrl) {
-    url = ARE_WE_HOME ? `portfolio/${url}` : `../portfolio/${url}`;
+    if (ARE_WE_HOME) {
+
+      url = url;
+    } else {
+      
+      url = `../${url}`;
+    }
   }
 
 
@@ -46,6 +51,6 @@ for (let p of pages) {
     a.target = "_blank";
   }
 
-  
+
   nav.append(a);
 }
