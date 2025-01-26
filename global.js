@@ -1,6 +1,6 @@
 console.log("IT’S ALIVE!");
 
-// Utility function to select multiple elements
+
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
@@ -37,11 +37,9 @@ for (let p of pages) {
     a.host === location.host && a.pathname === location.pathname
   );
 
-
   if (a.host !== location.host) {
     a.target = "_blank";
   }
-
 
   nav.append(a);
 }
