@@ -54,3 +54,34 @@ for (let p of pages) {
 
   nav.append(a);
 }
+
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+	<label class="color-scheme">
+		Theme:
+		<select id="theme-switcher">
+			<option value="auto">Automatic</option>
+			<option value="light">Light</option>
+			<option value="dark">Dark</option>
+		</select>
+	</label>`
+);
+
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const themeSelect = document.getElementById("theme-switcher");
+themeSelect.value = "auto"; 
+
+themeSelect.addEventListener("change", () => {
+  const value = themeSelect.value;
+  const root = document.documentElement;
+
+  if (value === "auto") {
+    root.style.colorScheme = "light dark"; 
+  } else {
+    root.style.colorScheme = value;
+  }
+});
+
+document.documentElement.style.colorScheme = prefersDarkScheme ? "dark" : "light";
+
