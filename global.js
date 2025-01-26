@@ -5,10 +5,10 @@ function $$(selector, context = document) {
 }
 
 const pages = [
-  { url: "index.html", title: "Home" },
-  { url: "portfolio/projects/index.html", title: "Projects" },
-  { url: "portfolio/resume.html", title: "Resume" },
-  { url: "portfolio/contact/index.html", title: "Contact" },
+  { url: "../index.html", title: "Home" },
+  { url: "../projects/index.html", title: "Projects" },
+  { url: "../resume.html", title: "Resume" },
+  { url: "../contact/index.html", title: "Contact" },
   { url: "https://github.com/rohanvasudev1", title: "GitHub" },
 ];
 
