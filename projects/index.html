@@ -8,26 +8,26 @@
     <style>
         :root {
             --color-accent: #007bff;
-            --background-color: #f4f4f4; 
-            --text-color: #000; 
+            --background-color: #f4f4f4;
+            --text-color: #000;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --background-color: #121212; 
+                --background-color: #121212;
                 --text-color: #f4f4f4;
-                --color-accent: #66aaff; 
+                --color-accent: #66aaff;
             }
         }
 
         nav {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             background-color: var(--background-color);
-            padding: 10px;
-            margin-bottom: 20px;
+            padding: 15px 20px;
             border-bottom: 1px solid var(--color-accent);
+            margin-bottom: 20px;
         }
 
         nav a {
@@ -35,8 +35,9 @@
             text-decoration: none;
             color: var(--text-color);
             text-align: center;
-            padding: 0.5em;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            padding: 0.5em 1em;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
         }
 
         nav a:hover {
@@ -49,7 +50,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 2px;
             background-color: transparent;
             transform: scaleX(0);
             transition: transform 0.3s ease, background-color 0.3s ease;
@@ -69,6 +70,7 @@
             background-color: var(--color-accent);
             transform: scaleX(1);
         }
+
         
         body {
             margin: 8px; 

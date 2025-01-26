@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohan Vasudev: Personal site and portfolio</title>
+    <title>Rohan Vasudev: Personal Site and Portfolio</title>
     <style>
-    :root {
+        :root {
             --color-accent: #007bff;
-            --background-color: #f4f4f4; 
-            --text-color: #000; 
+            --background-color: #f4f4f4;
+            --text-color: #000;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --background-color: #121212; 
+                --background-color: #121212;
                 --text-color: #f4f4f4;
-                --color-accent: #66aaff; 
+                --color-accent: #66aaff;
             }
         }
 
         nav {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             background-color: var(--background-color);
-            padding: 10px;
-            margin-bottom: 20px;
+            padding: 15px 20px;
             border-bottom: 1px solid var(--color-accent);
+            margin-bottom: 20px;
         }
 
         nav a {
@@ -34,8 +34,9 @@
             text-decoration: none;
             color: var(--text-color);
             text-align: center;
-            padding: 0.5em;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            padding: 0.5em 1em;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
         }
 
         nav a:hover {
@@ -48,7 +49,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 2px;
             background-color: transparent;
             transform: scaleX(0);
             transition: transform 0.3s ease, background-color 0.3s ease;
@@ -70,18 +71,32 @@
         }
 
         body {
-            margin: 8px; 
-            display: block; 
+            margin: 8px;
+            display: block;
             max-width: 100ch;
             padding: 20px;
             margin-inline: max(1em, (100% - 100ch) / 2);
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
-        
-        
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-
+    <nav>
+        <a href="index.html" class="current">Home</a>
+        <a href="projects/index.html">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact/index.html">Contact</a>
+        <a href="https://github.com/rohanvasudev1" target="_blank">GitHub</a>
+    </nav>
 
     <h1>Rohan S Vasudev</h1>
     <p>Hello! I am a Mathematics - Computer Science major at UCSD</p>
