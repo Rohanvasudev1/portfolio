@@ -82,12 +82,17 @@ function updateTheme(selectedTheme) {
   }
 }
 
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-themeSwitcher.value = prefersDark ? "dark" : "light";
-updateTheme(themeSwitcher.value);
+// const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+// themeSwitcher.value = prefersDark ? "dark" : "light";
+// updateTheme(themeSwitcher.value);
+
+const savedTheme = localStorage.getItem("colorScheme") || "auto";
+themeSwitcher.value = savedTheme;
+updateTheme(savedTheme);
 
 themeSwitcher.addEventListener("input", (event) => {
   const selectedTheme = event.target.value;
   updateTheme(selectedTheme);
+  localStorage.setItem("colorScheme", selectedTheme);
   console.log("Theme updated to:", selectedTheme);
 });
