@@ -6,7 +6,7 @@
     <title>Rohan S Vasudev: Resume</title>
     <link rel="stylesheet" href="../style.css">
     <style>
-         :root {
+        :root {
             --color-accent: #007bff;
             --background-color: #f4f4f4;
             --text-color: #000;
@@ -20,74 +20,22 @@
             }
         }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            background-color: var(--background-color);
-            padding: 15px 20px;
-            border-bottom: 1px solid var(--color-accent);
-            margin-bottom: 20px;
-        }
-
-        nav a {
-            position: relative;
-            text-decoration: none;
-            color: var(--text-color);
-            text-align: center;
-            font-weight: 500;
-            padding: 0.5em 1em;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--color-accent);
-        }
-
-        nav a::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: transparent;
-            transform: scaleX(0);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        nav a:hover::after {
-            background-color: var(--color-accent);
-            transform: scaleX(1);
-        }
-
-        nav a.current {
-            font-weight: bold;
-            color: var(--color-accent);
-        }
-
-        nav a.current::after {
-            background-color: var(--color-accent);
-            transform: scaleX(1);
-        } 
         body {
             margin: 8px;
-            display: block;
             max-width: 100ch;
             padding: 20px;
             margin-inline: max(1em, (100% - 100ch) / 2);
-            font-family: 'Georgia', 'Times New Roman', serif; 
-            font-size: 1.125em; 
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 1.125em;
             line-height: 1.8;
-            color: #333333; 
-            background-color: #fafafa; 
+            color: var(--text-color);
+            background-color: var(--background-color);
         }
 
-        
         h1 {
             font-size: 2.5em;
             margin-bottom: 0.8em;
-            color: #222222;
+            color: var(--text-color);
             text-align: center;
             font-family: 'Arial', sans-serif;
             font-weight: bold;
@@ -95,76 +43,30 @@
 
         h2 {
             font-size: 1.8em;
-            color: #444444;
+            color: var(--text-color);
             margin-top: 2em;
             margin-bottom: 0.5em;
-            border-bottom: 2px solid #cccccc; 
+            border-bottom: 2px solid var(--color-accent);
             padding-bottom: 0.3em;
         }
 
         h3 {
             font-size: 1.4em;
             margin-top: 1.5em;
-            color: #555555;
+            color: var(--text-color);
             font-weight: bold;
         }
 
-        section {
-            margin-bottom: 2em;
-        }
-
-        article {
-            margin-bottom: 1.5em;
-        }
-
-        
         ul {
             margin: 10px 0;
             padding-left: 20px;
-            list-style-type: square; 
+            list-style-type: square;
         }
 
         ul li {
             margin-bottom: 10px;
         }
-
-        
-        section p {
-            font-size: 1.125em; 
-            margin-bottom: 0.5em;
-        }
-
-        .skills ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-
-        .skills ul li {
-            margin-bottom: 5px;
-        }
-
-        section {
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            font-size: 2em;
-            margin-bottom: 5px;
-        }
-
-        ul {
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-
-        ul li {
-            margin-bottom: 5px;
-        }
+    </style>
     </style>
 </head>
 <body>
