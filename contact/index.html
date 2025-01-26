@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,77 +8,88 @@
     <link rel="stylesheet" href="../style.css">
     <style>
         :root {
-        --color-accent: #007bff; 
+            --color-accent: #007bff;
+            --background-color: #f4f4f4; 
+            --text-color: #000; 
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #121212; 
+                --text-color: #f4f4f4;
+                --color-accent: #66aaff; 
+            }
         }
 
         nav {
             display: flex;
             justify-content: center;
             gap: 20px;
-            background-color: #f4f4f4;
+            background-color: var(--background-color);
             padding: 10px;
             margin-bottom: 20px;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 1px solid var(--color-accent);
         }
 
         nav a {
-            position: relative; 
+            position: relative;
             text-decoration: none;
-            color: inherit;
+            color: var(--text-color);
             text-align: center;
             padding: 0.5em;
             transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: var(--color-accent); 
+            color: var(--color-accent);
         }
 
         nav a::after {
             content: "";
             position: absolute;
-            bottom: 0; 
+            bottom: 0;
             left: 0;
             right: 0;
-            height: 4px; 
-            background-color: transparent; 
-            transform: scaleX(0); 
-            transition: transform 0.3s ease, background-color 0.3s ease; 
+            height: 4px;
+            background-color: transparent;
+            transform: scaleX(0);
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         nav a:hover::after {
-            background-color: var(--color-accent); 
-            transform: scaleX(1); 
+            background-color: var(--color-accent);
+            transform: scaleX(1);
         }
 
         nav a.current {
-            font-weight: bold; 
-            color: var(--color-accent); 
+            font-weight: bold;
+            color: var(--color-accent);
         }
 
         nav a.current::after {
-            background-color: var(--color-accent); 
-            transform: scaleX(1); 
+            background-color: var(--color-accent);
+            transform: scaleX(1);
         }
+
         body {
-            margin: 8px; 
-            display: block; 
+            margin: 8px;
+            display: block;
             max-width: 100ch;
             padding: 20px;
             margin-inline: max(1em, (100% - 100ch) / 2);
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
-
 
         h1 {
             text-align: center;
         }
 
-
         form {
             display: grid;
-            grid-template-columns: auto 1fr; 
+            grid-template-columns: auto 1fr;
             gap: 1em;
-            align-items: center; 
+            align-items: center;
         }
 
         label {
@@ -87,22 +99,24 @@
         }
 
         input, textarea, button {
-            font: inherit; 
+            font: inherit;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid var(--color-accent);
             border-radius: 5px;
             width: 100%;
-            box-sizing: border-box; 
+            box-sizing: border-box;
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
 
         textarea {
-            resize: vertical; 
+            resize: vertical;
         }
 
         button {
             grid-column: 1 / -1;
             padding: 10px;
-            background-color: #007bff;
+            background-color: var(--color-accent);
             color: white;
             border: none;
             font-weight: bold;
@@ -133,3 +147,4 @@
     <script src="../global.js" defer></script>
 </body>
 </html>
+
