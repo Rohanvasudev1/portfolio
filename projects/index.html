@@ -20,80 +20,28 @@
             }
         }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            background-color: var(--background-color);
-            padding: 15px 20px;
-            border-bottom: 1px solid var(--color-accent);
-            margin-bottom: 20px;
-        }
-
-        nav a {
-            position: relative;
-            text-decoration: none;
-            color: var(--text-color);
-            text-align: center;
-            font-weight: 500;
-            padding: 0.5em 1em;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--color-accent);
-        }
-
-        nav a::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: transparent;
-            transform: scaleX(0);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        nav a:hover::after {
-            background-color: var(--color-accent);
-            transform: scaleX(1);
-        }
-
-        nav a.current {
-            font-weight: bold;
-            color: var(--color-accent);
-        }
-
-        nav a.current::after {
-            background-color: var(--color-accent);
-            transform: scaleX(1);
-        }
-
-        
         body {
-            margin: 8px; 
-            display: block; 
-            max-width: 100ch;
-            padding: 20px;
-            margin-inline: max(1em, (100% - 100ch) / 2);
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        h1 {
+            text-align: center;
         }
 
         .projects {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            grid-template-rows: subgrid; 
-            gap: 1em; 
+            gap: 1em;
         }
 
         .projects article {
             border: 1px solid #ddd;
             padding: 15px;
             border-radius: 8px;
-            background-color: #fff;
+            background-color: var(--background-color);
+            color: var(--text-color);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            grid-row: span 3; 
         }
 
         .projects img {
@@ -103,21 +51,6 @@
             margin-bottom: 10px;
             border-radius: 8px;
         }
-
-        h1, h2, h3, h4, h5, h6 {
-            line-height: 1.1; 
-            text-wrap: balance; 
-        }
-
-        h1 {
-            font-size: 400%; 
-        }
-
-        h2 {
-            margin: 0;
-        }
-        
-        
     </style>
 </head>
 <body>
