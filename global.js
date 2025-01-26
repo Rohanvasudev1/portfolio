@@ -1,6 +1,6 @@
 console.log("IT’S ALIVE!");
 
-
+// Utility function to select multiple elements
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
@@ -21,7 +21,6 @@ const ARE_WE_HOME = document.documentElement.classList.contains("home");
 const nav = document.createElement("nav");
 document.body.prepend(nav);
 
-
 for (let p of pages) {
   let url = p.url;
   let title = p.title;
@@ -32,17 +31,17 @@ for (let p of pages) {
   a.href = url;
   a.textContent = title;
 
+
   a.classList.toggle(
     "current",
     a.host === location.host && a.pathname === location.pathname
   );
 
+
   if (a.host !== location.host) {
     a.target = "_blank";
   }
 
+
   nav.append(a);
 }
-
-const navLinks = $$("nav a");
-console.log("Navigation links added:", navLinks);
