@@ -14,63 +14,58 @@ const pages = [
 
 const ARE_WE_HOME = document.documentElement.classList.contains("home");
 
+if (!document.querySelector("nav")) {
+  const nav = document.createElement("nav");
+  document.body.prepend(nav);
 
-const nav = document.createElement("nav");
-document.body.prepend(nav);
+  for (let p of pages) {
+    let url = p.url;
+    let title = p.title;
 
-for (let p of pages) {
-  let url = p.url;
-  let title = p.title;
+    const isAbsoluteUrl = url.startsWith("http");
 
-  const isAbsoluteUrl = url.startsWith("http");
-
-
-  if (!isAbsoluteUrl) {
-    if (ARE_WE_HOME) {
-
-      url = url;
-    } else {
-      
-      url = `../${url}`;
+    if (!isAbsoluteUrl) {
+      url = ARE_WE_HOME ? url : `../${url}`;
     }
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.textContent = title;
+
+    a.classList.toggle(
+      "current",
+      a.host === location.host && a.pathname === location.pathname
+    );
+
+    if (isAbsoluteUrl) {
+      a.target = "_blank";
+    }
+
+    nav.append(a);
   }
-
-
-  const a = document.createElement("a");
-  a.href = url;
-  a.textContent = title;
-
-
-  a.classList.toggle(
-    "current",
-    a.host === location.host && a.pathname === location.pathname
-  );
-
-
-  if (isAbsoluteUrl) {
-    a.target = "_blank";
-  }
-
-
-  nav.append(a);
 }
 
-document.body.insertAdjacentHTML(
-  'afterbegin',
-  `
-	<label class="color-scheme">
-		Theme:
-		<select id="theme-switcher">
-			<option value="auto">Automatic</option>
-			<option value="light">Light</option>
-			<option value="dark">Dark</option>
-		</select>
-	</label>`
-);
+
+if (!document.querySelector(".color-scheme")) {
+  document.body.insertAdjacentHTML(
+    "afterbegin",
+    `
+    <label class="color-scheme">
+        Theme:
+        <select id="theme-switcher">
+            <option value="auto">Automatic</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+    </label>`
+  );
+}
+
 
 const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 const themeSelect = document.getElementById("theme-switcher");
 themeSelect.value = "auto"; 
+
 
 themeSelect.addEventListener("change", () => {
   const value = themeSelect.value;
@@ -79,9 +74,8 @@ themeSelect.addEventListener("change", () => {
   if (value === "auto") {
     root.style.colorScheme = "light dark"; 
   } else {
-    root.style.colorScheme = value;
+    root.style.colorScheme = value; 
   }
 });
 
 document.documentElement.style.colorScheme = prefersDarkScheme ? "dark" : "light";
-
