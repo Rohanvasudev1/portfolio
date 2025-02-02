@@ -84,18 +84,32 @@
         h1 {
             text-align: center;
         }
+        h2 {
+            text-align: center;
+        }
+
 
         p {
             text-align: center;
         }
+
+        
     </style>
 </head>
 <body>
-    <!-- The navigation menu will be dynamically added by global.js -->
     <h1>Rohan S Vasudev</h1>
     <p>Hello! I am a Mathematics - Computer Science major at UCSD</p>
-    <img src="images/pc_ver_1.png" alt="My computer" width="200" height="200">
+    <div style="text-align: center;">
+        <img src="images/pc_ver_1.png" alt="My computer" width="200" height="200">
+    </div>
+    
+    <section id="github-stats">
+        <h2>GitHub Profile</h2>
+        <p>Followers: <span id="github-followers">Loading...</span></p>
+        <p>Public Repos: <span id="github-repos">Loading...</span></p>
+    </section>
 
-    <script src="../global.js" type="module"></script>
+    <script src="global.js" type="module"></script>
+    <script src="index.js" type="module" defer></script>
 </body>
 </html>

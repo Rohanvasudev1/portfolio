@@ -14,6 +14,28 @@ export async function fetchJSON(url) {
   }
 }
 
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
+
+async function loadGitHubStats() {
+  const username = "rohanvasudev1";
+  const githubFollowers = document.getElementById("github-followers");
+  const githubRepos = document.getElementById("github-repos");
+
+  try {
+      const data = await fetchGitHubData(username);
+
+      githubFollowers.textContent = data.followers || "N/A";
+      githubRepos.textContent = data.public_repos || "N/A";
+
+  } catch (error) {
+      console.error("Error fetching GitHub data:", error);
+      githubFollowers.textContent = "Error loading";
+      githubRepos.textContent = "Error loading";
+  }
+}
+
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
@@ -147,15 +169,19 @@ export function renderProjects(project, containerElement, headingLevel = "h2") {
 
 async function loadProjects() {
   const projectsContainer = document.querySelector(".projects");
+  const projectsTitle = document.querySelector(".projects-title");
 
-  if (!projectsContainer) return; 
+  if (!projectsContainer || !projectsTitle) return; 
 
-  const projects = await fetchJSON("../lib/projects.json"); 
+  const projects = await fetchJSON("../lib/projects.json");
 
- 
+
   projectsContainer.innerHTML = "";
 
- 
+
+  projectsTitle.textContent = `Projects (${projects.length})`;
+
+  
   projects.forEach(project => renderProjects(project, projectsContainer, "h3"));
 }
 
@@ -163,5 +189,6 @@ async function loadProjects() {
 
 document.addEventListener("DOMContentLoaded", () => {
   loadProjects();
+  loadGitHubStats()
 });
 
