@@ -111,6 +111,40 @@ themeSwitcher.addEventListener("input", (event) => {
   console.log("Theme updated to:", selectedTheme);
 });
 
+export function renderProjects(project, containerElement, headingLevel = "h2") {
+  if (!project || typeof project !== "object") {
+      console.error("Invalid project data:", project);
+      return;
+  }
+
+  if (!containerElement || !(containerElement instanceof HTMLElement)) {
+      console.error("Invalid container element:", containerElement);
+      return;
+  }
+
+
+  if (!/^h[1-6]$/.test(headingLevel)) {
+      console.warn(`Invalid heading level "${headingLevel}". Defaulting to "h2".`);
+      headingLevel = "h2";
+  }
+
+
+  const article = document.createElement("article");
+
+  
+  const imageSrc = project.image && project.image.trim() ? project.image : "https://via.placeholder.com/300";
+
+
+  article.innerHTML = `
+      <${headingLevel}>${project.title}</${headingLevel}>
+      <img src="${imageSrc}" alt="${project.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/300';">
+      <p>${project.description || "No description available."}</p>
+  `;
+
+  
+  containerElement.appendChild(article);
+}
+
 async function loadProjects() {
   const projectsContainer = document.querySelector(".projects");
 
@@ -118,16 +152,14 @@ async function loadProjects() {
 
   const projects = await fetchJSON("../lib/projects.json"); 
 
-  projects.forEach(project => {
-      const projectElement = document.createElement("article");
-      projectElement.innerHTML = `
-          <h2>${project.title}</h2>
-          <img src="${project.image}" alt="${project.title}" loading="lazy" />
-          <p>${project.description}</p>
-      `;
-      projectsContainer.appendChild(projectElement);
-  });
+ 
+  projectsContainer.innerHTML = "";
+
+ 
+  projects.forEach(project => renderProjects(project, projectsContainer, "h3"));
 }
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   loadProjects();
