@@ -18,23 +18,25 @@ export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
 }
 
-async function loadGitHubStats() {
+async function loadGitHubProfile() {
   const username = "rohanvasudev1";
-  const githubFollowers = document.getElementById("github-followers");
-  const githubRepos = document.getElementById("github-repos");
-
+  
   try {
-      const data = await fetchGitHubData(username);
+      const githubData = await fetchGitHubData(username);
 
-      githubFollowers.textContent = data.followers || "N/A";
-      githubRepos.textContent = data.public_repos || "N/A";
+      document.getElementById("followers").textContent = githubData.followers;
+      document.getElementById("following").textContent = githubData.following;
+      document.getElementById("repos").textContent = githubData.public_repos;
+      document.getElementById("gists").textContent = githubData.public_gists;
 
   } catch (error) {
-      console.error("Error fetching GitHub data:", error);
-      githubFollowers.textContent = "Error loading";
-      githubRepos.textContent = "Error loading";
+      console.error("Error fetching GitHub profile data:", error);
   }
 }
+
+
+
+
 
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
@@ -189,6 +191,6 @@ async function loadProjects() {
 
 document.addEventListener("DOMContentLoaded", () => {
   loadProjects();
-  loadGitHubStats()
+  loadGitHubProfile();
 });
 

@@ -92,7 +92,39 @@
         p {
             text-align: center;
         }
+        #github-profile {
+            text-align: center;
+            margin-top: 20px;
+        }
 
+        #profile-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+            gap: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .label {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-color);
+            text-transform: uppercase;
+        }
+
+        .value {
+            font-size: 36px;
+            font-weight: bold;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
         
     </style>
 </head>
@@ -103,10 +135,26 @@
         <img src="images/pc_ver_1.png" alt="My computer" width="200" height="200">
     </div>
     
-    <section id="github-stats">
-        <h2>GitHub Profile</h2>
-        <p>Followers: <span id="github-followers">Loading...</span></p>
-        <p>Public Repos: <span id="github-repos">Loading...</span></p>
+    <section id="github-profile">
+        <h2>My GitHub Stats</h2>
+        <div id="profile-stats">
+            <div class="stat">
+                <span class="label">FOLLOWERS</span>
+                <span class="value" id="followers">Loading...</span>
+            </div>
+            <div class="stat">
+                <span class="label">FOLLOWING</span>
+                <span class="value" id="following">Loading...</span>
+            </div>
+            <div class="stat">
+                <span class="label">PUBLIC REPOS</span>
+                <span class="value" id="repos">Loading...</span>
+            </div>
+            <div class="stat">
+                <span class="label">PUBLIC GISTS</span>
+                <span class="value" id="gists">Loading...</span>
+            </div>
+        </div>
     </section>
 
     <script src="global.js" type="module"></script>
