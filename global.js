@@ -67,8 +67,8 @@ for (let p of pages) {
 
   a.classList.toggle("current", currentPath === linkPath);
 
-  if (isAbsoluteUrl) {
-    a.target = "_blank";
+  if (url.includes("github.com")) {
+    a.target = "_blank"; // Only GitHub opens in a new tab
   }
 
   nav.append(a);
