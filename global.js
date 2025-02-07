@@ -41,13 +41,22 @@ function $$(selector, context = document) {
 // Dynamically get the domain
 const domain = window.location.origin;
 
+
 const pages = [
-  { url: `${domain}/portfolio/index.html`, title: "Home" },
-  { url: `${domain}/portfolio/projects/index.html`, title: "Projects" },
-  { url: `${domain}/portfolio/resume.html`, title: "Resume" },
-  { url: `${domain}/portfolio/contact/index.html`, title: "Contact" },
+  { url: `${domain}/index.html`, title: "Home" },
+  { url: `${domain}/projects/index.html`, title: "Projects" },
+  { url: `${domain}/resume.html`, title: "Resume" },
+  { url: `${domain}/contact/index.html`, title: "Contact" },
   { url: "https://github.com/rohanvasudev1", title: "GitHub" }, // External link remains unchanged
 ];
+
+// const pages = [
+//   { url: `${domain}/portfolio/index.html`, title: "Home" },
+//   { url: `${domain}/portfolio/projects/index.html`, title: "Projects" },
+//   { url: `${domain}/portfolio/resume.html`, title: "Resume" },
+//   { url: `${domain}/portfolio/contact/index.html`, title: "Contact" },
+//   { url: "https://github.com/rohanvasudev1", title: "GitHub" }, // External link remains unchanged
+// ];
 
 const nav = document.createElement("nav");
 document.body.prepend(nav);
@@ -74,51 +83,74 @@ for (let p of pages) {
   nav.append(a);
 }
 
+
+
+// document.body.insertAdjacentHTML(
+//   "afterbegin",
+//   `
+//     <label class="color-scheme">
+//         Theme:
+//         <select id="theme-switcher">
+//             <option value="auto">Automatic</option>
+//             <option value="light">Light</option>
+//             <option value="dark">Dark</option>
+//         </select>
+//     </label>
+//   `
+// );
+
+// const themeSwitcher = document.getElementById("theme-switcher");
+// const rootElement = document.documentElement;
+
+// function updateTheme(selectedTheme) {
+//   if (selectedTheme === "auto") {
+//     rootElement.style.setProperty("color-scheme", "light dark");
+//     document.body.style.backgroundColor = getComputedStyle(rootElement).getPropertyValue("--background-color").trim();
+//     document.body.style.color = getComputedStyle(rootElement).getPropertyValue("--text-color").trim();
+//   } else {
+//     rootElement.style.setProperty("color-scheme", selectedTheme);
+//     if (selectedTheme === "dark") {
+//       rootElement.style.setProperty("--background-color", "#121212");
+//       rootElement.style.setProperty("--text-color", "#f4f4f4");
+//       rootElement.style.setProperty("--color-accent", "#66aaff");
+//     } else {
+//       rootElement.style.setProperty("--background-color", "#f4f4f4");
+//       rootElement.style.setProperty("--text-color", "#000");
+//       rootElement.style.setProperty("--color-accent", "#007bff");
+//     }
+//   }
+// }
+
+// const savedTheme = localStorage.getItem("colorScheme") || "auto";
+// themeSwitcher.value = savedTheme;
+// updateTheme(savedTheme);
+
+// themeSwitcher.addEventListener("input", (event) => {
+//   const selectedTheme = event.target.value;
+//   updateTheme(selectedTheme);
+//   localStorage.setItem("colorScheme", selectedTheme);
+//   console.log("Theme updated to:", selectedTheme);
+// });
+
 document.body.insertAdjacentHTML(
   "afterbegin",
-  `
-    <label class="color-scheme">
-        Theme:
-        <select id="theme-switcher">
-            <option value="auto">Automatic</option>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-        </select>
-    </label>
-  `
+  `<button id="themeToggle" class="theme-toggle-btn">Toggle Theme</button>`
 );
 
-const themeSwitcher = document.getElementById("theme-switcher");
-const rootElement = document.documentElement;
+const themeToggleBtn = document.getElementById("themeToggle");
 
-function updateTheme(selectedTheme) {
-  if (selectedTheme === "auto") {
-    rootElement.style.setProperty("color-scheme", "light dark");
-    document.body.style.backgroundColor = getComputedStyle(rootElement).getPropertyValue("--background-color").trim();
-    document.body.style.color = getComputedStyle(rootElement).getPropertyValue("--text-color").trim();
-  } else {
-    rootElement.style.setProperty("color-scheme", selectedTheme);
-    if (selectedTheme === "dark") {
-      rootElement.style.setProperty("--background-color", "#121212");
-      rootElement.style.setProperty("--text-color", "#f4f4f4");
-      rootElement.style.setProperty("--color-accent", "#66aaff");
-    } else {
-      rootElement.style.setProperty("--background-color", "#f4f4f4");
-      rootElement.style.setProperty("--text-color", "#000");
-      rootElement.style.setProperty("--color-accent", "#007bff");
-    }
-  }
+// On page load, check localStorage for a saved theme (either "dark" or "light").
+const savedTheme = localStorage.getItem("themePref") || "light";
+if (savedTheme === "dark") {
+  document.documentElement.classList.add("dark");
 }
 
-const savedTheme = localStorage.getItem("colorScheme") || "auto";
-themeSwitcher.value = savedTheme;
-updateTheme(savedTheme);
-
-themeSwitcher.addEventListener("input", (event) => {
-  const selectedTheme = event.target.value;
-  updateTheme(selectedTheme);
-  localStorage.setItem("colorScheme", selectedTheme);
-  console.log("Theme updated to:", selectedTheme);
+// Toggle between light/dark when the button is clicked
+themeToggleBtn.addEventListener("click", () => {
+  document.documentElement.classList.toggle("dark");
+  const isDark = document.documentElement.classList.contains("dark");
+  localStorage.setItem("themePref", isDark ? "dark" : "light");
+  console.log("Theme toggled. Now:", isDark ? "dark" : "light");
 });
 
 export function renderProjects(project, containerElement, headingLevel = "h2") {
@@ -139,16 +171,32 @@ export function renderProjects(project, containerElement, headingLevel = "h2") {
 
   const article = document.createElement("article");
 
+  // Default image if none is provided
   const imageSrc = project.image && project.image.trim() ? project.image : "https://via.placeholder.com/300";
+
+  // Create content div to wrap description & year
+  const contentDiv = document.createElement("div");
+  contentDiv.classList.add("project-content");
+
+  const description = document.createElement("p");
+  description.textContent = project.description || "No description available.";
+
+  const year = document.createElement("p");
+  year.textContent = project.year ? `Year: ${project.year}` : "Year: N/A";
+  year.classList.add("project-year"); // Add class for styling
+
+  contentDiv.appendChild(description);
+  contentDiv.appendChild(year);
 
   article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
       <img src="${imageSrc}" alt="${project.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/300';">
-      <p>${project.description || "No description available."}</p>
   `;
 
+  article.appendChild(contentDiv);
   containerElement.appendChild(article);
 }
+
 
 async function loadProjects() {
   const projectsContainer = document.querySelector(".projects");

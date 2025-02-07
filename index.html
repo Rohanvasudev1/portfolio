@@ -7,26 +7,59 @@
     <link rel="stylesheet" href="../style.css">
     <style>
         :root {
-            --color-accent: #007bff;
-            --background-color: #f4f4f4;
-            --text-color: #000;
-        }
+      --color-accent: #007bff;
+      --background-color: #fff;      /* Pure white background */
+      --text-color: #000;
+      --leader-line-color: black;
+    }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background-color: #121212;
-                --text-color: #f4f4f4;
-                --color-accent: #66aaff;
-            }
-        }
+    /* Dark theme (activated by toggling .dark on <html>) */
+    :root.dark {
+      --background-color: #121212;  
+      --text-color: #f4f4f4;
+      --color-accent: #66aaff;
+      --leader-line-color: #ddd;
+    }
+
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);           /* White text on black background */
+  background-color:var(--background-color); 
+  border: 1px solid var(--background-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  /* Invert on hover: black text on white background */
+  background-color: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+.theme-toggle-btn:active {
+  /* Slightly gray background when clicked */
+  background-color: #eee;
+  color: #333;
+  border-color: #333;
+}
+
 
         nav {
             display: flex;
             justify-content: center;
             gap: 30px;
             background-color: var(--background-color);
-            padding: 15px 20px;
-            border-bottom: 1px solid var(--color-accent);
+            padding: 15px 50px;
             margin-bottom: 20px;
         }
 

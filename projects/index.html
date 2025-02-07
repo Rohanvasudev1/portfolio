@@ -1,117 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohan S Vasudev: Projects</title>
-    <link rel="stylesheet" href="../style.css">
-    <style>
-         :root {
-            --color-accent: #007bff;
-            --background-color: #f4f4f4;
-            --text-color: #000;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rohan S Vasudev: Projects</title>
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background-color: #121212;
-                --text-color: #f4f4f4;
-                --color-accent: #66aaff;
-            }
-        }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            background-color: var(--background-color);
-            padding: 15px 20px;
-            border-bottom: 1px solid var(--color-accent);
-            margin-bottom: 20px;
-        }
+  <link rel="stylesheet" href="../style.css" />
 
-        nav a {
-            position: relative;
-            text-decoration: none;
-            color: var(--text-color);
-            text-align: center;
-            font-weight: 500;
-            padding: 0.5em 1em;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
-        }
+  
+  <style>
+     :root {
+      --color-accent: #007bff;
+      --background-color: #fff;      
+      --text-color: #000;
+      --leader-line-color: black;
+    }
 
-        nav a:hover {
-            color: var(--color-accent);
-        }
+    :root.dark {
+      --background-color: #121212;  
+      --text-color: #f4f4f4;
+      --color-accent: #66aaff;
+      --leader-line-color: #ddd;
+    }
+    
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      margin: 0;
+      font-family: sans-serif;
+    }
 
-        nav a::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: transparent;
-            transform: scaleX(0);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
+    
+    .content-wrapper {
+      max-width: 1000px; 
+      margin: 0 auto;    
+      padding: 2rem;     
+    }
 
-        nav a:hover::after {
-            background-color: var(--color-accent);
-            transform: scaleX(1);
-        }
+    h1, .intro-text {
+      text-align: left;
+      margin: 0 0 1rem;
+    }
 
-        nav a.current {
-            font-weight: bold;
-            color: var(--color-accent);
-        }
+    .intro-text {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
 
-        nav a.current::after {
-            background-color: var(--color-accent);
-            transform: scaleX(1);
-        }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1em;
+      margin-top: 2rem;
+    }
 
-        body {
-            background-color: var(--background-color);
-            color: var(--text-color);
-        }
+    .projects article {
+      padding: 15px;
+      border-radius: 8px; 
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
 
-        h1 {
-            text-align: center;
-        }
+    .projects img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1em;
-        }
+    
+    #projects-plot {
+      display: block;
+      width: 500px;    
+      height: 500px;   
+      max-width: 100%; 
+      margin: 2rem 0;
+      overflow: visible;
+    }
 
-        .projects article {
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 8px;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
 
-        .projects img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin-bottom: 10px;
-            border-radius: 8px;
-        }
-    </style>
+    #legend {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 1em;
+      margin-bottom: 2rem;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .legend-color {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-right: 0.5em;
+      border-radius: 50%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background-color: var(--background-color);
+      padding: 15px 50px;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      position: relative;
+      text-decoration: none;
+      color: var(--text-color);
+      text-align: center;
+      font-weight: 500;
+      padding: 0.5em 1em;
+      transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--color-accent);
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: transparent;
+      transform: scaleX(0);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    nav a:hover::after {
+      background-color: var(--color-accent);
+      transform: scaleX(1);
+    }
+
+    nav a.current {
+      font-weight: bold;
+      color: var(--color-accent);
+    }
+
+    nav a.current::after {
+      background-color: var(--color-accent);
+      transform: scaleX(1);
+    }
+
+
+    .theme-toggle-btn {
+    display: inline-block;
+    margin: 1rem auto; 
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);           
+    background-color:var(--background-color); 
+    border: 1px solid var(--background-color);
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: center;
+    transition: 
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+
+    }
+
+    .theme-toggle-btn:hover {
+
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
+    }
+
+    .theme-toggle-btn:active {
+
+    background-color: #eee;
+    color: #333;
+    border-color: #333;
+    }
+
+    /* Left-align headings within the container */
+    
+  </style>
 </head>
 <body>
 
+  <!-- Optionally place a nav here, if needed -->
+  <!-- <nav> ... </nav> -->
+
+  <div class="content-wrapper">
     <h1 class="projects-title">Projects</h1>
-    <p>Explore some of the projects I've worked on.</p>
+    <p class="intro-text">Explore some of the projects I've worked on.</p>
 
-    <div class="projects"></div>
+    <!-- Pie Chart -->
+    <svg id="projects-plot">
+      <g></g>
+    </svg>
 
-    <script src="../global.js" type="module"></script>
-    <!-- <script src="../index.js" type="module" defer></script> -->
+    <!-- Legend for the pie chart -->
+    <div id="legend"></div>
+
+    <!-- The projects grid goes here -->
+    <div class="projects">
+      
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../global.js" type="module"></script>
+  <script src="projects.js" type="module" defer></script>
 </body>
 </html>

@@ -6,69 +6,101 @@
     <title>Rohan S Vasudev: Contact</title>
     <link rel="stylesheet" href="../style.css">
     <style>
-        :root {
-            --color-accent: #007bff;
-            --background-color: #f4f4f4;
-            --text-color: #000;
-        }
+         :root {
+      --color-accent: #007bff;
+      --background-color: #fff;      
+      --text-color: #000;
+      --leader-line-color: black;
+    }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background-color: #121212;
-                --text-color: #f4f4f4;
-                --color-accent: #66aaff;
-            }
-        }
+    
+    :root.dark {
+      --background-color: #121212;  
+      --text-color: #f4f4f4;
+      --color-accent: #66aaff;
+      --leader-line-color: #ddd;
+    }
 
         nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            background-color: var(--background-color);
-            padding: 15px 20px;
-            border-bottom: 1px solid var(--color-accent);
-            margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background-color: var(--background-color);
+      padding: 15px 50px;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      position: relative;
+      text-decoration: none;
+      color: var(--text-color);
+      text-align: center;
+      font-weight: 500;
+      padding: 0.5em 1em;
+      transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--color-accent);
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: transparent;
+      transform: scaleX(0);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    nav a:hover::after {
+      background-color: var(--color-accent);
+      transform: scaleX(1);
+    }
+
+    nav a.current {
+      font-weight: bold;
+      color: var(--color-accent);
+    }
+
+    nav a.current::after {
+      background-color: var(--color-accent);
+      transform: scaleX(1);
+    }
+
+    
+     .theme-toggle-btn {
+        display:inline-block;
+        margin-bottom: 1rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-color);          
+        background-color: var(--background-color); 
+        border: 1px solid var(--background-color);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 
+            background-color 0.3s ease,
+            color 0.3s ease,
+            border-color 0.3s ease;
         }
 
-        nav a {
-            position: relative;
-            text-decoration: none;
-            color: var(--text-color);
-            text-align: center;
-            font-weight: 500;
-            padding: 0.5em 1em;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+        .theme-toggle-btn:hover {
+        
+        background-color: #fff;
+        color: #000;
+        border-color: #000;
         }
 
-        nav a:hover {
-            color: var(--color-accent);
-        }
-
-        nav a::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: transparent;
-            transform: scaleX(0);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        nav a:hover::after {
-            background-color: var(--color-accent);
-            transform: scaleX(1);
-        }
-
-        nav a.current {
-            font-weight: bold;
-            color: var(--color-accent);
-        }
-
-        nav a.current::after {
-            background-color: var(--color-accent);
-            transform: scaleX(1);
+        .theme-toggle-btn:active {
+       
+        background-color: #eee;
+        color: #333;
+        border-color: #333;
         }
 
         body {
@@ -99,7 +131,7 @@
         }
 
         input, textarea, button {
-            font: inherit;
+
             padding: 10px;
             border: 1px solid var(--color-accent);
             border-radius: 5px;
