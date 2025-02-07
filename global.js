@@ -42,10 +42,10 @@ function $$(selector, context = document) {
 const domain = window.location.origin;
 
 const pages = [
-  { url: `${domain}/index.html`, title: "Home" },
-  { url: `${domain}/projects/index.html`, title: "Projects" },
-  { url: `${domain}/resume.html`, title: "Resume" },
-  { url: `${domain}/contact/index.html`, title: "Contact" },
+  { url: `${domain}/portfolio/index.html`, title: "Home" },
+  { url: `${domain}/portfolio/projects/index.html`, title: "Projects" },
+  { url: `${domain}/portfolio/resume.html`, title: "Resume" },
+  { url: `${domain}/portfolio/contact/index.html`, title: "Contact" },
   { url: "https://github.com/rohanvasudev1", title: "GitHub" }, // External link remains unchanged
 ];
 
