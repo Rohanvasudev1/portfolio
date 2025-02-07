@@ -34,26 +34,20 @@ async function loadGitHubProfile() {
   }
 }
 
-
-
-
-
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
+// Dynamically get the domain
+const domain = window.location.origin;
 
 const pages = [
-  { url: "index.html", title: "Home" },
-  { url: "projects/index.html", title: "Projects" },
-  { url: "resume.html", title: "Resume" },
-  { url: "contact/index.html", title: "Contact" },
-  { url: "https://github.com/rohanvasudev1", title: "GitHub" },
+  { url: `${domain}/index.html`, title: "Home" },
+  { url: `${domain}/projects/index.html`, title: "Projects" },
+  { url: `${domain}/resume.html`, title: "Resume" },
+  { url: `${domain}/contact/index.html`, title: "Contact" },
+  { url: "https://github.com/rohanvasudev1", title: "GitHub" }, // External link remains unchanged
 ];
-
-
-const ARE_WE_HOME = document.documentElement.classList.contains("home");
-
 
 const nav = document.createElement("nav");
 document.body.prepend(nav);
@@ -63,18 +57,15 @@ for (let p of pages) {
   let title = p.title;
   const isAbsoluteUrl = url.startsWith("http");
 
-  if (!isAbsoluteUrl && !ARE_WE_HOME) {
-    url = `../${url}`;
-  }
-
   const a = document.createElement("a");
   a.href = url;
   a.textContent = title;
 
-  a.classList.toggle(
-    "current",
-    a.host === location.host && a.pathname === location.pathname
-  );
+  // Normalize paths to ensure proper active link detection
+  const currentPath = window.location.pathname.replace(/\/$/, "").toLowerCase();
+  const linkPath = new URL(url, domain).pathname.replace(/\/$/, "").toLowerCase();
+
+  a.classList.toggle("current", currentPath === linkPath);
 
   if (isAbsoluteUrl) {
     a.target = "_blank";
@@ -82,7 +73,6 @@ for (let p of pages) {
 
   nav.append(a);
 }
-
 
 document.body.insertAdjacentHTML(
   "afterbegin",
@@ -120,10 +110,6 @@ function updateTheme(selectedTheme) {
   }
 }
 
-// const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-// themeSwitcher.value = prefersDark ? "dark" : "light";
-// updateTheme(themeSwitcher.value);
-
 const savedTheme = localStorage.getItem("colorScheme") || "auto";
 themeSwitcher.value = savedTheme;
 updateTheme(savedTheme);
@@ -146,18 +132,14 @@ export function renderProjects(project, containerElement, headingLevel = "h2") {
       return;
   }
 
-
   if (!/^h[1-6]$/.test(headingLevel)) {
       console.warn(`Invalid heading level "${headingLevel}". Defaulting to "h2".`);
       headingLevel = "h2";
   }
 
-
   const article = document.createElement("article");
 
-  
   const imageSrc = project.image && project.image.trim() ? project.image : "https://via.placeholder.com/300";
-
 
   article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
@@ -165,7 +147,6 @@ export function renderProjects(project, containerElement, headingLevel = "h2") {
       <p>${project.description || "No description available."}</p>
   `;
 
-  
   containerElement.appendChild(article);
 }
 
@@ -175,22 +156,16 @@ async function loadProjects() {
 
   if (!projectsContainer || !projectsTitle) return; 
 
-  const projects = await fetchJSON("../lib/projects.json");
-
+  const projects = await fetchJSON(`${domain}/lib/projects.json`);
 
   projectsContainer.innerHTML = "";
 
-
   projectsTitle.textContent = `Projects (${projects.length})`;
 
-  
   projects.forEach(project => renderProjects(project, projectsContainer, "h3"));
 }
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   loadProjects();
   loadGitHubProfile();
 });
-

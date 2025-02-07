@@ -6,19 +6,23 @@
     <title>Rohan S Vasudev: Resume</title>
     <link rel="stylesheet" href="../style.css">
     <style>
-        :root {
-            --color-accent: #007bff;
-            --background-color: #f4f4f4;
-            --text-color: #000;
-        }
+       :root {
+    --color-accent: #007bff;
+    --background-color: #f4f4f4;
+    --text-color: #000;
+    --box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background-color: #121212;
-                --text-color: #f4f4f4;
-                --color-accent: #66aaff;
-            }
-        }
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #121212;
+        --text-color: #f4f4f4;
+        --color-accent: #66aaff;
+        --box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* NAVIGATION */
         nav {
             display: flex;
             justify-content: center;
@@ -70,52 +74,88 @@
             transform: scaleX(1);
         }
 
-        body {
-            margin: 8px;
-            max-width: 100ch;
-            padding: 20px;
-            margin-inline: max(1em, (100% - 100ch) / 2);
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-size: 1.125em;
-            line-height: 1.8;
-            color: var(--text-color);
-            background-color: var(--background-color);
-        }
 
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.8em;
-            color: var(--text-color);
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            font-weight: bold;
-        }
+/* BODY STYLING */
+body {
+    margin: 8px;
+    max-width: 100ch;
+    padding: 20px;
+    margin-inline: max(1em, (100% - 100ch) / 2);
+    font-family: 'Arial', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
 
-        h2 {
-            font-size: 1.8em;
-            color: var(--text-color);
-            margin-top: 2em;
-            margin-bottom: 0.5em;
-            border-bottom: 2px solid var(--color-accent);
-            padding-bottom: 0.3em;
-        }
+/* HEADER */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    text-align: center;
+    font-weight: bold;
+}
 
-        h3 {
-            font-size: 1.4em;
-            margin-top: 1.5em;
-            color: var(--text-color);
-            font-weight: bold;
-        }
+/* SECTIONS */
+section {
+    background-color: var(--background-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+}
 
-        ul {
-            margin: 10px 0;
-            padding-left: 20px;
-            list-style-type: square;
-        }
+section:hover {
+    transform: scale(1.03);
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.15);
+}
 
-        ul li {
-            margin-bottom: 10px;
-        }
+/* HEADINGS */
+h2 {
+    font-size: 1.8em;
+    color: var(--color-accent);
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    border-bottom: 3px solid var(--color-accent);
+    padding-bottom: 0.3em;
+}
+
+/* JOB & PROJECT LISTINGS */
+article {
+    background-color: var(--background-color);
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+}
+
+article:hover {
+    transform: scale(1.05);
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* LISTS */
+ul {
+    margin: 10px 0;
+    padding-left: 20px;
+    list-style-type: square;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    padding-top: 10px;
+    border-top: 1px solid var(--color-accent);
+    margin-top: 20px;
+    opacity: 0.7;
+}
     </style>
     
 </head>
