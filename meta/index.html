@@ -61,15 +61,212 @@
             background-color: var(--background-color);
             color: var(--text-color);
         }
+        .stats {
+            font-family: Arial, sans-serif;
+            margin-top: 20px;
+            }
+
+        .stats dt {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .stats dd {
+            margin: 0;
+            padding: 0 0 10px;
+        }
+        #summary-stats {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: var(--background-color);
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        .summary-item {
+        text-align: center;
+        }
+
+        .summary-item dt {
+        font-size: 12px;
+        color: gray;
+        text-transform: uppercase;
+        }
+
+        .summary-item dd {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 5px 0;
+        }
+
+        .gridlines line {
+        stroke: #ddd; /* Light gray */
+        stroke-opacity: 0.7;
+        shape-rendering: crispEdges;
+        }
+
+        .gridlines path {
+        stroke-width: 0; /* Hide axis line */
+        }
+
+        .tooltip {
+        position: fixed;
+        top: 1em;
+        left: 1em;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        display: none; 
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3); 
+        backdrop-filter: blur(5px); 
+        pointer-events: none; 
+        transition: opacity 0.2s ease-in-out; 
+        }
+
+        dl.info {
+        transition-duration: 500ms;
+        transition-property: opacity, visibility;
+        }
+
+        /* Hide tooltip smoothly when not hovered */
+        dl.info[hidden]:not(:hover, :focus-within) {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+
+        /* Style the info display */
+        .info {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 5px;
+        align-items: center;
+        }
+
+        .info dt {
+        font-weight: bold;
+        color: lightgray;
+        }
+
+        .info dd {
+        margin: 0;
+        font-weight: bold;
+        }
+
+        /* Make dots scale smoothly on hover */
+        circle {
+        transition: 200ms;
+        transform-origin: center;
+        transform-box: fill-box;
+        }
+
+        circle:hover {
+        transform: scale(1.5);
+        }
+        circle.selected {
+        fill: #ff6b6b; /* Highlight selected dots in red */
+        }
+
+
+        #commit-link {
+            color: white;
+            text-decoration: none;
+        }
+
+        #commit-link:visited {
+            color: white;
+        }
+
+        @keyframes marching-ants {
+            to {
+                stroke-dashoffset: -8; /* Creates the moving dashed effect */
+            }
+        }
+
+        .selection {
+            fill-opacity: 0.1;  /* Light transparent blue selection */
+            stroke: black;
+            stroke-opacity: 0.7;
+            stroke-dasharray: 5 3;  /* Dotted line effect */
+            animation: marching-ants 2s linear infinite;  /* Moving border */
+        }
+
+        #language-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background: var(--background-color);
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#language-breakdown dt {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+
+#language-breakdown dd {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color, #ff6b6b); /* Default to red */
+    margin: 5px 0;
+}
+
+#language-breakdown dd span {
+    font-size: 16px;
+    color: gray;
+    display: block;
+    margin-top: 5px;
+}
         
     </style>
 </head>
 <body>
     <h1>Meta</h1>
     <p>The page includes stats about the code of this website</p>
-   
+    
+    <h2>Summary</h2>
+    <div id="summary-stats"></div>
+
+    <p id="selection-count">No commits selected
+    <h2>Commits by Time of Day</h2>
+    <div id="chart"></div>
+
+    <dl id="commit-tooltip" class="info tooltip">
+        <dt>Commit</dt>
+        <dd>
+          <a href="" id="commit-link" target="_blank"></a>
+        </dd>
+      
+        <dt>Date</dt>
+        <dd id="commit-date"></dd>
+      
+        <dt>Time</dt>
+        <dd id="commit-time"></dd>
+      
+        <dt>Author</dt>
+        <dd id="commit-author"></dd>
+      
+        <dt>Lines Edited</dt>
+        <dd id="commit-lines"></dd>
+      </dl>
+    <dl id="language-breakdown" class="stats"></dl>
 
     <script src="../global.js" type="module"></script>
-    <script src="../index.js" type="module" defer></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script defer src="main.js"></script>
 </body>
 </html>
