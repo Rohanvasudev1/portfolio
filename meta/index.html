@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="home">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan Vasudev: Personal Site and Portfolio</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        
+        body {
+            margin: 8px;
+            display: block;
+            max-width: 100ch;
+            padding: 20px;
+            margin-inline: max(1em, (100% - 100ch) / 2);
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+
+
+        p {
+            text-align: center;
+        }
+        #github-profile {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #profile-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .label {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-color);
+            text-transform: uppercase;
+        }
+
+        .value {
+            font-size: 36px;
+            font-weight: bold;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Meta</h1>
+    <p>The page includes stats about the code of this website</p>
+   
+
+    <script src="../global.js" type="module"></script>
+    <script src="../index.js" type="module" defer></script>
+</body>
+</html>

@@ -1,29 +1,118 @@
 body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
-    font: 100%/1.5 system-ui;
-  }
+    
+  font: 100%/1.5 system-ui;
+}
 
-  .color-scheme {
+.color-scheme {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px;
+  font-size: 16px;
+}
+
+.color-scheme select {
+  font: inherit;
+  padding: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.color-scheme select:focus {
+  outline: 2px solid var(--accent-color);
+}
+
+
+:root {
+  --color-accent: #007bff;
+  --background-color: #fff;      
+  --text-color: #000;
+  --leader-line-color: black;
+}
+
+
+:root.dark {
+  --background-color: #121212;  
+  --text-color: #f4f4f4;
+  --color-accent: #66aaff;
+  --leader-line-color: #ddd;
+}
+
+    
+.theme-toggle-container {
+  display: flex;
+  justify-content: center; 
+  margin-bottom: 10px; 
+}
+
+.theme-toggle-btn {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  border: 1px solid var(--text-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+
+nav {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 10px;
-    font-size: 16px;
-  }
-  
-  .color-scheme select {
-    font: inherit;
-    padding: 5px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
+    justify-content: center;
+    gap: 30px;
     background-color: var(--background-color);
+    padding: 15px 50px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    position: relative;
+    text-decoration: none;
     color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .color-scheme select:focus {
-    outline: 2px solid var(--accent-color);
-  }
-  
+    text-align: center;
+    font-weight: 500;
+    padding: 0.5em 1em;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--color-accent);
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: transparent;
+    transform: scaleX(0);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+nav a:hover::after {
+    background-color: var(--color-accent);
+    transform: scaleX(1);
+}
+
+nav a.current {
+    font-weight: bold;
+    color: var(--color-accent);
+}
+
+nav a.current::after {
+    background-color: var(--color-accent);
+    transform: scaleX(1);
+}

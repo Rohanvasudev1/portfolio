@@ -47,6 +47,7 @@ const pages = [
   { url: `${domain}/projects/index.html`, title: "Projects" },
   { url: `${domain}/resume.html`, title: "Resume" },
   { url: `${domain}/contact/index.html`, title: "Contact" },
+  { url: `${domain}/meta/index.html`, title: "Meta" },
   { url: "https://github.com/rohanvasudev1", title: "GitHub" }, // External link remains unchanged
 ];
 
@@ -171,10 +172,10 @@ export function renderProjects(project, containerElement, headingLevel = "h2") {
 
   const article = document.createElement("article");
 
-  // Default image if none is provided
+
   const imageSrc = project.image && project.image.trim() ? project.image : "https://via.placeholder.com/300";
 
-  // Create content div to wrap description & year
+
   const contentDiv = document.createElement("div");
   contentDiv.classList.add("project-content");
 
@@ -183,7 +184,7 @@ export function renderProjects(project, containerElement, headingLevel = "h2") {
 
   const year = document.createElement("p");
   year.textContent = project.year ? `Year: ${project.year}` : "Year: N/A";
-  year.classList.add("project-year"); // Add class for styling
+  year.classList.add("project-year");
 
   contentDiv.appendChild(description);
   contentDiv.appendChild(year);
@@ -198,22 +199,22 @@ export function renderProjects(project, containerElement, headingLevel = "h2") {
 }
 
 
-async function loadProjects() {
-  const projectsContainer = document.querySelector(".projects");
-  const projectsTitle = document.querySelector(".projects-title");
+// async function loadProjects() {
+//   const projectsContainer = document.querySelector(".projects");
+//   const projectsTitle = document.querySelector(".projects-title");
 
-  if (!projectsContainer || !projectsTitle) return; 
+//   if (!projectsContainer || !projectsTitle) return; 
 
-  const projects = await fetchJSON(`${domain}/lib/projects.json`);
+//   const projects = await fetchJSON(`${domain}/lib/projects.json`);
 
-  projectsContainer.innerHTML = "";
+//   projectsContainer.innerHTML = "";
 
-  projectsTitle.textContent = `Projects (${projects.length})`;
+//   projectsTitle.textContent = `Projects (${projects.length})`;
 
-  projects.forEach(project => renderProjects(project, projectsContainer, "h3"));
-}
+//   projects.forEach(project => renderProjects(project, projectsContainer, "h3"));
+// }
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadProjects();
+  // loadProjects();
   loadGitHubProfile();
 });

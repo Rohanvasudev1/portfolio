@@ -1,314 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohan S Vasudev: Resume</title>
-    <link rel="stylesheet" href="../style.css">
-    <style>
-        :root {
-      --color-accent: #007bff;
-      --background-color: #fff;    
-      --text-color: #000;
-      --leader-line-color: black;
-    }
-
-    
-    :root.dark {
-      --background-color: #121212;  
-      --text-color: #f4f4f4;
-      --color-accent: #66aaff;
-      --leader-line-color: #ddd;
-    }
-    .theme-toggle-container {
-    display: flex;
-    justify-content: center; 
-    margin-bottom: 5px; 
-    }
-
-
-    .theme-toggle-btn {
-    display: inline-block;
-    margin-bottom: 1rem;
-    padding: 0.4rem 0.8rem; 
-    font-size: 0.9rem;  
-    font-weight: 500;
-    color: var(--text-color);           
-    background-color: var(--background-color); 
-    border: 1px solid var(--background-color);
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 
-        background-color 0.3s ease,
-        color 0.3s ease,
-        border-color 0.3s ease;
-    }
-
-    .theme-toggle-btn:hover {
-
-    background-color: #fff;
-    color: #000;
-    border-color: #000;
-    }
-
-    .theme-toggle-btn:active {
-    background-color: #eee;
-    color: #333;
-    border-color: #333;
-    }
-
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            background-color: var(--background-color);
-            padding: 15px 50px;
-            margin-bottom: 20px;
-        }
-
-        nav a {
-            position: relative;
-            text-decoration: none;
-            color: var(--text-color);
-            text-align: center;
-            font-weight: 500;
-            padding: 0.5em 1em;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--color-accent);
-        }
-
-        nav a::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: transparent;
-            transform: scaleX(0);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        nav a:hover::after {
-            background-color: var(--color-accent);
-            transform: scaleX(1);
-        }
-
-        nav a.current {
-            font-weight: bold;
-            color: var(--color-accent);
-        }
-
-        nav a.current::after {
-            background-color: var(--color-accent);
-            transform: scaleX(1);
-        }
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rohan S Vasudev: Resume</title>
+<link rel="stylesheet" href="../style.css">
+<style>
 
 
 body {
-    margin: 8px;
-    max-width: 100ch;
-    padding: 20px;
-    margin-inline: max(1em, (100% - 100ch) / 2);
-    font-family: 'Arial', sans-serif;
-    font-size: 1.1em;
-    line-height: 1.8;
-    color: var(--text-color);
-    background-color: var(--background-color);
+margin: 8px;
+max-width: 100ch;
+padding: 20px;
+margin-inline: max(1em, (100% - 100ch) / 2);
+font-family: 'Arial', sans-serif;
+font-size: 1.1em;
+line-height: 1.8;
+color: var(--text-color);
+background-color: var(--background-color);
 }
 
 
 h1 {
-    font-size: 2.5em;
-    margin-bottom: 1em;
-    text-align: center;
-    font-weight: bold;
+font-size: 2.5em;
+margin-bottom: 1em;
+text-align: center;
+font-weight: bold;
 }
 
 
 section {
-    background-color: var(--background-color);
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
-    transition: all 0.3s ease;
+background-color: var(--background-color);
+padding: 20px;
+margin-bottom: 20px;
+border-radius: 10px;
+box-shadow: var(--box-shadow);
+transition: all 0.3s ease;
 }
 
 section:hover {
-    transform: scale(1.03);
-    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.15);
+transform: scale(1.03);
+box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 
 h2 {
-    font-size: 1.8em;
-    color: var(--color-accent);
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    border-bottom: 3px solid var(--color-accent);
-    padding-bottom: 0.3em;
+font-size: 1.8em;
+color: var(--color-accent);
+margin-top: 1em;
+margin-bottom: 0.5em;
+border-bottom: 3px solid var(--color-accent);
+padding-bottom: 0.3em;
 }
 
 
 article {
-    background-color: var(--background-color);
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 8px;
-    box-shadow: var(--box-shadow);
-    transition: all 0.3s ease;
+background-color: var(--background-color);
+padding: 15px;
+margin-top: 15px;
+border-radius: 8px;
+box-shadow: var(--box-shadow);
+transition: all 0.3s ease;
 }
 
 article:hover {
-    transform: scale(1.05);
-    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
+transform: scale(1.05);
+box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* LISTS */
 ul {
-    margin: 10px 0;
-    padding-left: 20px;
-    list-style-type: square;
+margin: 10px 0;
+padding-left: 20px;
+list-style-type: square;
 }
 
 ul li {
-    margin-bottom: 10px;
+margin-bottom: 10px;
 }
 
 /* FOOTER */
 footer {
-    text-align: center;
-    font-size: 0.9em;
-    padding-top: 10px;
-    border-top: 1px solid var(--color-accent);
-    margin-top: 20px;
-    opacity: 0.7;
+text-align: center;
+font-size: 0.9em;
+padding-top: 10px;
+border-top: 1px solid var(--color-accent);
+margin-top: 20px;
+opacity: 0.7;
 }
-    </style>
-    
+</style>
+
 </head>
 <body>
-    
 
-    <h1>Resume</h1>
-    <section>
-        <h2>Contact Information</h2>
-        <p>Rohan S Vasudev</p>
-    </section>
 
-    <section>
-        <h2>Education</h2>
-        <p><strong>University of California, San Diego (UCSD HONORS)</strong></p>
-        <p>September 2022 – Expected June 2026</p>
-        <p>Major: Mathematics - Computer Science B.S, Minor: Data Science</p>
-        <p>Relevant courses: Statistical Methods, Advanced Linear Algebra, Calculus, Data Science Foundations & Applications, Data Structures & Object-Oriented Design, Discrete Math, Graph Theory, Computer Organization & Systems Programming, AI: Probabilistic Models, Algorithms</p>
-    </section>
+<h1>Resume</h1>
+<section>
+<h2>Contact Information</h2>
+<p>Rohan S Vasudev</p>
+</section>
 
-    <section>
-        <h2>Professional Experience</h2>
-        <article>
-            <h3>TIPTOP TECHNOLOGIES</h3>
-            <p>Full Stack Software Engineering Intern</p>
-            <p>January 2024-Present</p>
-            <ul>
-                <li>Led development of AI-based system that generates questions and grades user responses using internally developed LLM ML classification models, achieving an accuracy of over 95.4% (AGILE Development Practices).</li>
-                <li>Developed data storage system that analyzes user responses, enabling AI-driven improvements in question algorithms and adaptability over time.</li>
-                <li>Designed REST API endpoints for CRUD operations on a MySQL-backed database, optimizing for security and performance as well as specific error handling.</li>
-            </ul>
-        </article>
+<section>
+<h2>Education</h2>
+<p><strong>University of California, San Diego (UCSD HONORS)</strong></p>
+<p>September 2022 – Expected June 2026</p>
+<p>Major: Mathematics - Computer Science B.S, Minor: Data Science</p>
+<p>Relevant courses: Statistical Methods, Advanced Linear Algebra, Calculus, Data Science Foundations & Applications, Data Structures & Object-Oriented Design, Discrete Math, Graph Theory, Computer Organization & Systems Programming, AI: Probabilistic Models, Algorithms</p>
+</section>
 
-        <article>
-            <h3>PUBLICIS SAPIENT, London England</h3>
-            <p>Work Experience in Technology Solutions Team</p>
-            <p>July 2024 – August 2024</p>
-            <ul>
-                <li>Integrated GPT Models into a secure, local server using FASTAPI and LANGCHAIN frameworks and Python.</li>
-                <li>Automated the extraction of meteorological data from APIs and developed advanced visualizations for key parameters, including temperature and geolocation metrics with Python and using AGILE Development Methodologies.</li>
-            </ul>
-        </article>
+<section>
+<h2>Professional Experience</h2>
+<article>
+<h3>TIPTOP TECHNOLOGIES</h3>
+<p>Full Stack Software Engineering Intern</p>
+<p>January 2024-Present</p>
+<ul>
+    <li>Led development of AI-based system that generates questions and grades user responses using internally developed LLM ML classification models, achieving an accuracy of over 95.4% (AGILE Development Practices).</li>
+    <li>Developed data storage system that analyzes user responses, enabling AI-driven improvements in question algorithms and adaptability over time.</li>
+    <li>Designed REST API endpoints for CRUD operations on a MySQL-backed database, optimizing for security and performance as well as specific error handling.</li>
+</ul>
+</article>
 
-        <article>
-            <h3>LLOYDS BANKING GROUP, London, England</h3>
-            <p>Intern in Data Analytics Team & Personal Current Accounts (PCA) Team</p>
-            <p>July 2023 – August 2023</p>
-            <ul>
-                <li>Streamlined and automated data mining procedures by leveraging Python and packages like Selenium, ensuring the timely updating of financial statistics that is used to understand consumer behavior and inspire product changes.</li>
-                <li>Used SQL to optimize consumer databases and predictive modelling and PowerBI to create data dashboards.</li>
-                <li>Spearheaded a project on Artificial Intelligence in Banking; suggested improvements specific to Lloyds Banking Group, delivering a comprehensive presentation to PCA Team.</li>
-            </ul>
-        </article>
-    </section>
+<article>
+<h3>PUBLICIS SAPIENT, London England</h3>
+<p>Work Experience in Technology Solutions Team</p>
+<p>July 2024 – August 2024</p>
+<ul>
+    <li>Integrated GPT Models into a secure, local server using FASTAPI and LANGCHAIN frameworks and Python.</li>
+    <li>Automated the extraction of meteorological data from APIs and developed advanced visualizations for key parameters, including temperature and geolocation metrics with Python and using AGILE Development Methodologies.</li>
+</ul>
+</article>
 
-    <section>
-        <h2>Notable Projects</h2>
-        <article>
-            <h3>Machine Learning Housing Price Predictor (Full Stack)</h3>
-            <p>November 2024-Present</p>
-            <ul>
-                <li>Implemented Random Forest Regressor and TensorFlow Sequential models with robust preprocessing pipeline (scaling, one-hot encoding) and measured performance (RMSE and MAE).</li>
-                <li>Currently working on frontend and implementing additional models (Python).</li>
-            </ul>
-        </article>
+<article>
+<h3>LLOYDS BANKING GROUP, London, England</h3>
+<p>Intern in Data Analytics Team & Personal Current Accounts (PCA) Team</p>
+<p>July 2023 – August 2023</p>
+<ul>
+    <li>Streamlined and automated data mining procedures by leveraging Python and packages like Selenium, ensuring the timely updating of financial statistics that is used to understand consumer behavior and inspire product changes.</li>
+    <li>Used SQL to optimize consumer databases and predictive modelling and PowerBI to create data dashboards.</li>
+    <li>Spearheaded a project on Artificial Intelligence in Banking; suggested improvements specific to Lloyds Banking Group, delivering a comprehensive presentation to PCA Team.</li>
+</ul>
+</article>
+</section>
 
-        <article>
-            <h3>Autonomous Vehicle Simulator</h3>
-            <p>December 2024</p>
-            <ul>
-                <li>Designed vehicle dynamics simulator to model autonomous vehicle behavior on custom-designed tracks (C++).</li>
-                <li>Used SDL2 for real time rendering, and creating interface to simulate vehicle motion on various track designs.</li>
-                <li>Simulated vehicle physics including acceleration, drag and curved track dynamics for real functionality.</li>
-            </ul>
-        </article>
+<section>
+<h2>Notable Projects</h2>
+<article>
+<h3>Machine Learning Housing Price Predictor (Full Stack)</h3>
+<p>November 2024-Present</p>
+<ul>
+    <li>Implemented Random Forest Regressor and TensorFlow Sequential models with robust preprocessing pipeline (scaling, one-hot encoding) and measured performance (RMSE and MAE).</li>
+    <li>Currently working on frontend and implementing additional models (Python).</li>
+</ul>
+</article>
 
-        <article>
-            <h3>Automated Football Analytics Website (Full Stack)</h3>
-            <p>November 2024</p>
-            <ul>
-                <li>Designed a full stack football analytics dashboard with React, Flask and AWS, deployed on a secure server environment.</li>
-                <li>Developed a dynamic data pipeline in Python to fetch API data, store it in an S3 bucket and create advanced visualizations.</li>
-                <li>Made a web app using JavaScript and React Router for seamless navigation.</li>
-            </ul>
-        </article>
+<article>
+<h3>Autonomous Vehicle Simulator</h3>
+<p>December 2024</p>
+<ul>
+    <li>Designed vehicle dynamics simulator to model autonomous vehicle behavior on custom-designed tracks (C++).</li>
+    <li>Used SDL2 for real time rendering, and creating interface to simulate vehicle motion on various track designs.</li>
+    <li>Simulated vehicle physics including acceleration, drag and curved track dynamics for real functionality.</li>
+</ul>
+</article>
 
-        <article>
-            <h3>Artificial Intelligence Email Summarizer Chrome Extension (CalHacks)</h3>
-            <p>October 2024</p>
-            <ul>
-                <li>Led a team, using SDLC phases, to develop a chrome extension that integrates with the Gmail API and OpenAI's API to fetch emails and generate concise summaries that are sent back to the user’s inbox.</li>
-                <li>Implemented asynchronous JavaScript functions to extract and parse email data (subject, sender, date, body), used JSON for data handling and storage and sent the data securely to OpenAI’s API via an API key for summarization.</li>
-                <li>Created an intuitive user interface to display summarized emails in the extension using HTML.</li>
-                <li>Automated the process of sending summarized emails back to user’s inbox using JavaScript (Node).</li>
-            </ul>
-        </article>
+<article>
+<h3>Automated Football Analytics Website (Full Stack)</h3>
+<p>November 2024</p>
+<ul>
+    <li>Designed a full stack football analytics dashboard with React, Flask and AWS, deployed on a secure server environment.</li>
+    <li>Developed a dynamic data pipeline in Python to fetch API data, store it in an S3 bucket and create advanced visualizations.</li>
+    <li>Made a web app using JavaScript and React Router for seamless navigation.</li>
+</ul>
+</article>
 
-        <article>
-            <h3>Recipe Calorie Predictor (Analysis Here)</h3>
-            <p>December 2024</p>
-            <ul>
-                <li>Trained a Random Forest Regressor model to predict recipe calories with 92% accuracy (R² = 0.92) using features like average rating and proportion of protein and sugar levels (Python).</li>
-                <li>Engineered key features (e.g. steps per ingredient) and optimized model with GridSearchCV, reducing RMSE.</li>
-                <li>Performed Data Cleaning, Exploratory Data Analysis and Fairness Analysis to ensure model consistency.</li>
-                <li>Visualized insights to identify trends in univariate and bivariate analyses as well as outcomes of permutation tests.</li>
-            </ul>
-        </article>
-        
-    </section>
+<article>
+<h3>Artificial Intelligence Email Summarizer Chrome Extension (CalHacks)</h3>
+<p>October 2024</p>
+<ul>
+    <li>Led a team, using SDLC phases, to develop a chrome extension that integrates with the Gmail API and OpenAI's API to fetch emails and generate concise summaries that are sent back to the user’s inbox.</li>
+    <li>Implemented asynchronous JavaScript functions to extract and parse email data (subject, sender, date, body), used JSON for data handling and storage and sent the data securely to OpenAI’s API via an API key for summarization.</li>
+    <li>Created an intuitive user interface to display summarized emails in the extension using HTML.</li>
+    <li>Automated the process of sending summarized emails back to user’s inbox using JavaScript (Node).</li>
+</ul>
+</article>
 
-    <section>
-        <h2>Skills</h2>
-        <ul>
-            <li>Programming Languages: Python, Java, C, C++, R, ARM 64-Bit Assembly Language, SQL, JavaScript, HTML, CSS</li>
-            <li>Relevant Frameworks & Technologies: TensorFlow, PyTorch, scikit-learn, NumPy, Pandas, AWS (S3, SageMaker), Flask, Linux, Matplotlib, Seaborn, JSON, GitHub, Angular, Node.js, React</li>
-            <li>APIs: Vulkan, OpenAI, OpenGL, Direct3D, GMAIL, Google Cloud, S3, API-Football, Voice-to-Text</li>
-        </ul>
-    </section>
+<article>
+<h3>Recipe Calorie Predictor (Analysis Here)</h3>
+<p>December 2024</p>
+<ul>
+    <li>Trained a Random Forest Regressor model to predict recipe calories with 92% accuracy (R² = 0.92) using features like average rating and proportion of protein and sugar levels (Python).</li>
+    <li>Engineered key features (e.g. steps per ingredient) and optimized model with GridSearchCV, reducing RMSE.</li>
+    <li>Performed Data Cleaning, Exploratory Data Analysis and Fairness Analysis to ensure model consistency.</li>
+    <li>Visualized insights to identify trends in univariate and bivariate analyses as well as outcomes of permutation tests.</li>
+</ul>
+</article>
 
-    <script src="global.js" type="module"></script>
+</section>
+
+<section>
+<h2>Skills</h2>
+<ul>
+<li>Programming Languages: Python, Java, C, C++, R, ARM 64-Bit Assembly Language, SQL, JavaScript, HTML, CSS</li>
+<li>Relevant Frameworks & Technologies: TensorFlow, PyTorch, scikit-learn, NumPy, Pandas, AWS (S3, SageMaker), Flask, Linux, Matplotlib, Seaborn, JSON, GitHub, Angular, Node.js, React</li>
+<li>APIs: Vulkan, OpenAI, OpenGL, Direct3D, GMAIL, Google Cloud, S3, API-Football, Voice-to-Text</li>
+</ul>
+</section>
+
+<script src="global.js" type="module"></script>
 </body>
 </html>

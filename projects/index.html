@@ -10,24 +10,11 @@
 
   
   <style>
-     :root {
-      --color-accent: #007bff;
-      --background-color: #fff;      
-      --text-color: #000;
-      --leader-line-color: black;
-    }
-
-    :root.dark {
-      --background-color: #121212;  
-      --text-color: #f4f4f4;
-      --color-accent: #66aaff;
-      --leader-line-color: #ddd;
-    }
+     
     
     body {
       background-color: var(--background-color);
       color: var(--text-color);
-      margin: 0;
       font-family: sans-serif;
     }
 
@@ -56,7 +43,7 @@
     }
 
     .projects article {
-      padding: 15px;
+      padding: 30px;
       border-radius: 8px; 
       background-color: var(--background-color);
       color: var(--text-color);
@@ -71,150 +58,88 @@
     }
 
     
-    #projects-plot {
-      display: block;
-      width: 500px;    
-      height: 500px;   
-      max-width: 100%; 
-      margin: 2rem 0;
-      overflow: visible;
-    }
+.chart-container {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 1rem; 
+  max-width: 700px; 
+
+}
 
 
-    #legend {
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      gap: 1em;
-      margin-bottom: 2rem;
-    }
-
-    .legend-item {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .legend-color {
-      display: inline-block;
-      width: 14px;
-      height: 14px;
-      margin-right: 0.5em;
-      border-radius: 50%;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      background-color: var(--background-color);
-      padding: 15px 50px;
-      margin-bottom: 20px;
-    }
-
-    nav a {
-      position: relative;
-      text-decoration: none;
-      color: var(--text-color);
-      text-align: center;
-      font-weight: 500;
-      padding: 0.5em 1em;
-      transition: color 0.3s ease, border-bottom-color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: var(--color-accent);
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background-color: transparent;
-      transform: scaleX(0);
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    nav a:hover::after {
-      background-color: var(--color-accent);
-      transform: scaleX(1);
-    }
-
-    nav a.current {
-      font-weight: bold;
-      color: var(--color-accent);
-    }
-
-    nav a.current::after {
-      background-color: var(--color-accent);
-      transform: scaleX(1);
-    }
+#legend {
+  flex: 1; 
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 20px;
+}
 
 
-    .theme-toggle-btn {
-    display: inline-block;
-    margin: 1rem auto; 
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-color);           
-    background-color:var(--background-color); 
-    border: 1px solid var(--background-color);
-    border-radius: 5px;
-    cursor: pointer;
+#projects-plot {
+  width: 300px; 
+  height: 300px; 
+}
+
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.legend-color {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%; 
+  margin-right: 0.5rem;
+}
+.searchBar {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin: 20px auto;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-container {
+    display: flex;
     justify-content: center;
-    transition: 
-    background-color 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease;
-
-    }
-
-    .theme-toggle-btn:hover {
-
-    background-color: #fff;
-    color: #000;
-    border-color: #000;
-    }
-
-    .theme-toggle-btn:active {
-
-    background-color: #eee;
-    color: #333;
-    border-color: #333;
-    }
-
-    /* Left-align headings within the container */
+    margin: 10px 0;
+  }
+      
     
   </style>
 </head>
 <body>
 
-  <!-- Optionally place a nav here, if needed -->
-  <!-- <nav> ... </nav> -->
-
   <div class="content-wrapper">
     <h1 class="projects-title">Projects</h1>
     <p class="intro-text">Explore some of the projects I've worked on.</p>
 
-    <!-- Pie Chart -->
-    <svg id="projects-plot">
-      <g></g>
-    </svg>
-
-    <!-- Legend for the pie chart -->
-    <div id="legend"></div>
-
-    <!-- The projects grid goes here -->
+    <div class="chart-container">
+        <svg id="projects-plot">
+          <g></g>
+        </svg>
+        
+        <div id="legend"></div>
+      </div>
+      <input
+      class="searchBar"
+      type="search"
+      aria-label="Search projects"
+      placeholder="🔍 Search projects…"
+    />
+    
     <div class="projects">
       
     </div>
   </div>
 
-  <!-- Scripts -->
   <script src="../global.js" type="module"></script>
   <script src="projects.js" type="module" defer></script>
 </body>
