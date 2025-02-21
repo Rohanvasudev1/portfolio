@@ -73,7 +73,9 @@ for (let p of pages) {
 
   // Normalize paths to ensure proper active link detection
   const currentPath = window.location.pathname.replace(/\/$/, "").toLowerCase();
-  const linkPath = new URL(url, domain).pathname.replace(/\/$/, "").toLowerCase();
+const linkPath = new URL(p.url, domain).pathname.replace(/\/$/, "").toLowerCase();
+
+
 
   a.classList.toggle("current", currentPath === linkPath);
 
