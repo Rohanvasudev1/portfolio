@@ -38,7 +38,7 @@ function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
-// Dynamically get the domain
+
 const domain = window.location.origin;
 
 
@@ -140,13 +140,13 @@ document.body.insertAdjacentHTML(
 
 const themeToggleBtn = document.getElementById("themeToggle");
 
-// On page load, check localStorage for a saved theme (either "dark" or "light").
+
 const savedTheme = localStorage.getItem("themePref") || "light";
 if (savedTheme === "dark") {
   document.documentElement.classList.add("dark");
 }
 
-// Toggle between light/dark when the button is clicked
+
 themeToggleBtn.addEventListener("click", () => {
   document.documentElement.classList.toggle("dark");
   const isDark = document.documentElement.classList.contains("dark");

@@ -1,6 +1,13 @@
+
 body {
-    
   font: 100%/1.5 system-ui;
+  margin: 8px;
+  display: block;
+  max-width: 100ch;
+  padding: 20px;
+  margin-inline: max(1em, (100% - 100ch) / 2);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .color-scheme {

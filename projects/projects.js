@@ -108,21 +108,21 @@ function setQuery(newQuery) {
     });
 }
 
-// 🔥 **Event Listener for Real-Time Search**
+
 searchInput.addEventListener("input", (event) => {
     let filteredProjects = setQuery(event.target.value);
 
-    // ✅ Ensure projectsContainer exists before calling renderProjects
+    
     if (!projectsContainer) {
         console.error("Error: projectsContainer not found.");
         return;
     }
 
-    // ✅ Update project list (now it clears before rendering filtered projects)
+    
     loadProjects();
     
 
-    // ✅ Update the pie chart with filtered data
+    
     let newData = processProjectsData(filteredProjects);
     renderPieChart(newData);
 });
