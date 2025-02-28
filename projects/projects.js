@@ -2,7 +2,7 @@ import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 
 console.log("IT’S ALIVE!");
 
-import { fetchJSON, renderProjects } from '../global.js'; 
+import { fetchJSON, renderProjects } from '/portfolio/global.js'; 
 
 const width = 500;
 const height = 500;
