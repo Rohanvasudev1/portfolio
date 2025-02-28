@@ -38,6 +38,7 @@ body {
   --background-color: #fff;      
   --text-color: #000;
   --leader-line-color: black;
+  --other-text: #000;
   
 }
 
@@ -46,7 +47,8 @@ body {
   --background-color: #121212;  
   --text-color: #f4f4f4;
   --color-accent: #66aaff;
-  --leader-line-color: #ddd;
+  --leader-line-color: #dccfcf;
+  --other-text: #000
 }
 
     
