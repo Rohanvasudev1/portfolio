@@ -28,39 +28,82 @@
         p {
             text-align: center;
         }
-        #github-profile {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        #profile-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
-            gap: 20px;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .stat {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: Arial, sans-serif;
-        }
-
-        .label {
-            font-size: 14px;
-            font-weight: bold;
-            color: var(--text-color);
-            text-transform: uppercase;
-        }
-
-        .value {
-            font-size: 36px;
-            font-weight: bold;
-            background-color: var(--background-color);
-            color: var(--text-color);
-        }
+        .github-stats-section {
+      margin: 40px auto;
+      max-width: 800px;
+    }
+    
+    .github-stats-header {
+      text-align: center;
+      margin-bottom: 25px;
+      position: relative;
+    }
+    
+    .github-stats-header h2 {
+      font-size: 1.8rem;
+      display: inline-block;
+      padding-bottom: 5px;
+      border-bottom: 3px solid #3498db;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .stat-item {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    [data-theme="dark"] .stat-item {
+      background-color: #2a2a2a;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    [data-theme="dark"] .stat-item:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    }
+    
+    .stat-label {
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    
+    .stat-value {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #3498db;
+    }
+    
+    [data-theme="dark"] .stat-value {
+      color: #61dafb;
+    }
         
     </style>
 </head>
@@ -71,27 +114,32 @@
         <img src="images/pc_ver_1.png" alt="My computer" width="200" height="200">
     </div>
     
-    <section id="github-profile">
-        <h2>My GitHub Stats</h2>
-        <div id="profile-stats">
-            <div class="stat">
-                <span class="label">FOLLOWERS</span>
-                <span class="value" id="followers">Loading...</span>
-            </div>
-            <div class="stat">
-                <span class="label">FOLLOWING</span>
-                <span class="value" id="following">Loading...</span>
-            </div>
-            <div class="stat">
-                <span class="label">PUBLIC REPOS</span>
-                <span class="value" id="repos">Loading...</span>
-            </div>
-            <div class="stat">
-                <span class="label">PUBLIC GISTS</span>
-                <span class="value" id="gists">Loading...</span>
-            </div>
+    <section class="github-stats-section" id="github-profile">
+        <div class="github-stats-header">
+          <h2>My GitHub Stats</h2>
         </div>
-    </section>
+        
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-label">FOLLOWERS</div>
+            <div class="stat-value" id="followers">Loading...</div>
+          </div>
+          
+          <div class="stat-item">
+            <div class="stat-label">FOLLOWING</div>
+            <div class="stat-value" id="following">Loading...</div>
+          </div>
+          
+          <div class="stat-item">
+            <div class="stat-label">PUBLIC REPOS</div>
+            <div class="stat-value" id="repos">Loading...</div>
+          </div>
+          
+          <div class="stat-item">
+            <div class="stat-label">PUBLIC GISTS</div>
+            <div class="stat-value" id="gists">Loading...</div>
+          </div>
+        </div>
 
     <script src="global.js" type="module"></script>
     <script src="index.js" type="module" defer></script>
