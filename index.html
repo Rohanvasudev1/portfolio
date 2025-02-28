@@ -72,20 +72,13 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
-    [data-theme="dark"] .stat-item {
-      background-color: #2a2a2a;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
+
     
     .stat-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
-    
-    [data-theme="dark"] .stat-item:hover {
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    }
+
     
     .stat-label {
       font-size: 0.85rem;
@@ -93,6 +86,7 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 8px;
+      color: var(--text-color);
     }
     
     .stat-value {
@@ -101,9 +95,7 @@
       color: #3498db;
     }
     
-    [data-theme="dark"] .stat-value {
-      color: #61dafb;
-    }
+    
         
     </style>
 </head>
