@@ -12,16 +12,16 @@ let projects = [];
 let query = '';
 const searchInput = document.querySelector('.searchBar');
 const projectsContainer = document.querySelector('.projects'); 
+projects = await fetchJSON("/portfolio/lib/projects.json"); 
+renderProjects(projects, projectsContainer, 'h2');
 
 
+// async function initializeProjects() {
 
-async function initializeProjects() {
-    projects = await fetchJSON("/portfolio/lib/projects.json"); 
-
-    const latestProjects = projects.slice(0, 3);
-    renderProjects(latestProjects, projectsContainer, 'h2');
-    loadProjects();
-}
+//     const latestProjects = projects.slice(0, 3);
+//     renderProjects(latestProjects, projectsContainer, 'h2');
+//     loadProjects();
+// }
 
 // async function loadProjects() {
 //     projects = await fetchJSON("../lib/projects.json"); 
@@ -29,21 +29,21 @@ async function initializeProjects() {
 //     renderPieChart(processProjectsData(projects)); 
 // }
 
-async function loadProjects(newprojects) {
-  const projectsContainer = document.querySelector(".projects");
-  const projectsTitle = document.querySelector(".projects-title");
+// async function loadProjects(newprojects) {
+//   const projectsContainer = document.querySelector(".projects");
+//   const projectsTitle = document.querySelector(".projects-title");
 
-  if (!projectsContainer || !projectsTitle) return; 
+//   if (!projectsContainer || !projectsTitle) return; 
 
-  const projects = await fetchJSON(`/portfolio/lib/projects.json`);
+//   const projects = await fetchJSON(`/portfolio/lib/projects.json`);
 
-  projectsContainer.innerHTML = "";
+//   projectsContainer.innerHTML = "";
 
-  projectsTitle.textContent = `Projects (${projects.length})`;
+//   projectsTitle.textContent = `Projects (${projects.length})`;
 
-  projects.forEach(project => renderProjects(project, projectsContainer, "h3"));
-  renderPieChart(processProjectsData(projects)); 
-}
+//   projects.forEach(project => renderProjects(project, projectsContainer, "h3"));
+//   renderPieChart(processProjectsData(projects)); 
+// }
 
 
 
@@ -82,7 +82,7 @@ function renderPieChart(data) {
       .attr("stroke", "#fff")
       .style("stroke-width", "2px");
 
-    // ✅ Update legend
+  
     const legend = d3.select("#legend").html("");
 
     const legendItems = legend.selectAll(".legend-item")
@@ -98,7 +98,7 @@ function renderPieChart(data) {
     legendItems.append("span").text((d) => `${d.label} (${d.value})`);
 }
 
-// 🔥 **Search Functionality (Case-Insensitive & Searches All Metadata)**
+
 function setQuery(newQuery) {
     query = newQuery.toLowerCase();
 
@@ -118,8 +118,8 @@ searchInput.addEventListener("input", (event) => {
         return;
     }
 
-    
-    loadProjects();
+    renderProjects(filteredProjects, projectsContainer, 'h2');
+
     
 
     
@@ -127,7 +127,7 @@ searchInput.addEventListener("input", (event) => {
     renderPieChart(newData);
 });
 
-initializeProjects();
+
 
 
 // document.addEventListener('DOMContentLoaded', () => {
