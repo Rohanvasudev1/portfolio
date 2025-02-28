@@ -1,6 +1,7 @@
+// Fixed version
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 
-console.log("IT’S ALIVE!");
+console.log("IT'S ALIVE!");
 
 import { fetchJSON, renderProjects } from '/portfolio/global.js'; 
 
@@ -12,41 +13,30 @@ let projects = [];
 let query = '';
 const searchInput = document.querySelector('.searchBar');
 const projectsContainer = document.querySelector('.projects'); 
-projects = await fetchJSON("/portfolio/lib/projects.json"); 
-renderProjects(projects, projectsContainer, 'h2');
-renderPieChart(processProjectsData(projects)); 
 
+// Main initialization function
+async function initialize() {
+  try {
+    // Fetch projects data
+    projects = await fetchJSON("/portfolio/lib/projects.json"); 
+    
+    // Clear container first
+    projectsContainer.innerHTML = "";
+    
+    // Loop through projects and render each one individually
+    projects.forEach(project => {
+      renderProjects(project, projectsContainer, 'h2');
+    });
+    
+    // Render pie chart
+    renderPieChart(processProjectsData(projects));
+  } catch (error) {
+    console.error("Error initializing projects:", error);
+  }
+}
 
-// async function initializeProjects() {
-
-//     const latestProjects = projects.slice(0, 3);
-//     renderProjects(latestProjects, projectsContainer, 'h2');
-//     loadProjects();
-// }
-
-// async function loadProjects() {
-//     projects = await fetchJSON("../lib/projects.json"); 
-//     renderProjects(projects, projectsContainer, "h2"); 
-//     renderPieChart(processProjectsData(projects)); 
-// }
-
-// async function loadProjects(newprojects) {
-//   const projectsContainer = document.querySelector(".projects");
-//   const projectsTitle = document.querySelector(".projects-title");
-
-//   if (!projectsContainer || !projectsTitle) return; 
-
-//   const projects = await fetchJSON(`/portfolio/lib/projects.json`);
-
-//   projectsContainer.innerHTML = "";
-
-//   projectsTitle.textContent = `Projects (${projects.length})`;
-
-//   projects.forEach(project => renderProjects(project, projectsContainer, "h3"));
-//   renderPieChart(processProjectsData(projects)); 
-// }
-
-
+// Call the initialize function
+initialize();
 
 function processProjectsData(filteredProjects) {
     let rolledData = d3.rollups(
@@ -60,7 +50,6 @@ function processProjectsData(filteredProjects) {
         label: year.toString(), 
     }));
 }
-
 
 function renderPieChart(data) {
     const colors = d3.scaleOrdinal(d3.schemeTableau10);
@@ -83,7 +72,6 @@ function renderPieChart(data) {
       .attr("stroke", "#fff")
       .style("stroke-width", "2px");
 
-  
     const legend = d3.select("#legend").html("");
 
     const legendItems = legend.selectAll(".legend-item")
@@ -99,7 +87,6 @@ function renderPieChart(data) {
     legendItems.append("span").text((d) => `${d.label} (${d.value})`);
 }
 
-
 function setQuery(newQuery) {
     query = newQuery.toLowerCase();
 
@@ -109,38 +96,22 @@ function setQuery(newQuery) {
     });
 }
 
-
 searchInput.addEventListener("input", (event) => {
     let filteredProjects = setQuery(event.target.value);
-
     
     if (!projectsContainer) {
         console.error("Error: projectsContainer not found.");
         return;
     }
 
-    renderProjects(filteredProjects, projectsContainer, 'h2');
-
+    // Clear container first
+    projectsContainer.innerHTML = "";
     
-
+    // Loop through filtered projects and render each one
+    filteredProjects.forEach(project => {
+        renderProjects(project, projectsContainer, 'h2');
+    });
     
     let newData = processProjectsData(filteredProjects);
     renderPieChart(newData);
 });
-
-
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const searchInput = document.querySelector('.searchBar');
-  
-//   searchInput.addEventListener('input', (event) => {
-//       query = event.target.value;
-//       const filteredProjects = filterProjects(query);
-//       const container = document.querySelector('.projects');
-//       renderProjects(filteredProjects, container, 'h2');
-//   });
-  
-//   // Load initial projects
-//   loadProjects(filteredProjects);
-// });
