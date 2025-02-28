@@ -16,7 +16,7 @@ const projectsContainer = document.querySelector('.projects');
 
 
 async function initializeProjects() {
-    projects = await fetchJSON("porfolio/lib/projects.json"); 
+    projects = await fetchJSON("/portfolio/lib/projects.json"); 
 
     const latestProjects = projects.slice(0, 3);
     renderProjects(latestProjects, projectsContainer, 'h2');
@@ -35,7 +35,7 @@ async function loadProjects(newprojects) {
 
   if (!projectsContainer || !projectsTitle) return; 
 
-  const projects = await fetchJSON(`portfolio/lib/projects.json`);
+  const projects = await fetchJSON(`/portfolio/lib/projects.json`);
 
   projectsContainer.innerHTML = "";
 
