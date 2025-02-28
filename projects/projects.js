@@ -14,6 +14,7 @@ const searchInput = document.querySelector('.searchBar');
 const projectsContainer = document.querySelector('.projects'); 
 projects = await fetchJSON("/portfolio/lib/projects.json"); 
 renderProjects(projects, projectsContainer, 'h2');
+renderPieChart(processProjectsData(projects)); 
 
 
 // async function initializeProjects() {
