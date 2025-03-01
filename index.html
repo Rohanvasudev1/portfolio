@@ -195,6 +195,27 @@
   background-color: rgba(52, 152, 219, 0.05);
 }
 
+.current-work-section {
+  background-color: var(--background-color);
+  padding: 20px;
+  border-left: 5px solid #3498db;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.current-work-section h2 {
+  font-size: 1.4em;
+  margin-bottom: 0.5rem;
+}
+
+.current-work-item {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+  padding: 10px;
+  background: rgba(52, 152, 219, 0.1);
+  border-radius: 6px;
+}
 
     
     
@@ -239,6 +260,8 @@
       </div>
     </div>
   </section>
+
+  
     <!-- <div style="text-align: center;">
         <img src="images/pc_ver_1.png" alt="My computer" width="200" height="200">
     </div> -->
@@ -269,6 +292,9 @@
             <div class="stat-value" id="gists">Loading...</div>
           </div>
         </div>
+
+        
+      
         
         <section class="section" id="skills">
           <div class="section-header">
@@ -326,6 +352,43 @@
             <div class="skill-tag">Linear Algebra</div>
           </div>
         </section>
+
+        <section class="current-work-section">
+          <h2>Currently Working On</h2>
+          <div id="current-work"></div>
+        </section>
+
+        
+        <script>
+          const currentWork = [
+            {
+              role: "AI Research Intern",
+              company: "University of California, San Diego",
+              description: "Developing a classification model to verify AI/ML alignment with NIST AI Risk Management Framework."
+            },
+            {
+              role: "Software Engineering Intern",
+              company: "TipTop Technologies",
+              description: "Building AI-powered question generation and grading system using NLP and machine learning models."
+            },
+            {
+              role: "Machine Learning and Full Stack Engineer",
+              company: "Independent Project",
+              description: "Designing a scalable loan risk pricing model trained on a 500,000-row dataset with Python and AWS."
+            }
+          ];
+      
+          const currentWorkSection = document.getElementById("current-work");
+          currentWork.forEach((item) => {
+            const workItem = document.createElement("p");
+            workItem.classList.add("current-work-item");
+            workItem.innerHTML = `<strong>${item.role}</strong> at <em>${item.company}</em> - ${item.description}`;
+            currentWorkSection.appendChild(workItem);
+          });
+        </script>
+      
+
+
     <script src="global.js" type="module"></script>
     <script src="index.js" type="module" defer></script>
 </body>
