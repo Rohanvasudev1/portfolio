@@ -2,55 +2,73 @@
     {
         "title": "AI-Driven Question Generation and Grading System",
         "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
-        "description": "Led development of an AI-based system that generates questions and grades user responses using internally developed NLP ML classification models, achieving an accuracy of over 95.4%.",
+        "description": "Developed an AI-based system that generates questions and grades user responses using NLP and ML classification models, achieving 95.4% accuracy.",
         "year": 2024
     },
     {
         "title": "CRUD REST API Development",
         "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
-        "description": "Designed REST API endpoints for operations on a MySQL-backed database, optimizing for security and error handling.",
+        "description": "Designed REST API endpoints for operations on a PostgreSQL database, implementing security measures and optimizing error handling.",
         "year": 2024
     },
     {
         "title": "User Tier Management Automation",
         "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
-        "description": "Implemented a daily automated script to upgrade/downgrade user tiers based on monthly anniversaries using internal APIs. Ensured proper data logging and handling of edge cases.",
+        "description": "Automated user tier upgrades and downgrades using Python and Docker, ensuring accurate logging and seamless execution via internal APIs.",
         "year": 2024
     },
     {
         "title": "Scalable Loan Risk Pricing and Prediction System",
         "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
-        "description": "Developed an ML model for loan risk pricing, training on a 500,000-row dataset, optimizing for low latency and large-scale financial computations.",
+        "description": "Developed an ML model for loan risk pricing, training on a 500,000-row dataset, calculating probability of default, loss given default, and expected loss for financial risk assessment.",
+        "year": 2025
+    },
+    {
+        "title": "Wearable Data Analysis Website for Glycemic Variability",
+        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "description": "Built an interactive visualization platform using D3.js to analyze nutrient intake trends from wearable sensor data, implementing brushing, tooltips, and dynamic filtering.",
         "year": 2025
     },
     {
         "title": "Recipe Calorie Predictor",
         "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
-        "description": "Trained a Random Forest Regressor to predict recipe calories with 92% accuracy using features like average rating and proportion of protein and sugar levels.",
+        "description": "Trained a Random Forest Regressor model to predict recipe calories with 92% accuracy using Python, optimizing model parameters with GridSearchCV.",
         "year": 2024
     },
     {
-        "title": "Automated Football Statistics Website",
+        "title": "Automated Football Analytics Website",
         "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
-        "description": "Designed a full stack football statistics dashboard using React, Flask, and AWS, with a dynamic data pipeline fetching API data and storing it in an S3 bucket.",
+        "description": "Developed a full-stack football analytics dashboard using React, Flask, and AWS, with automated API data fetching and advanced visualizations.",
         "year": 2024
     },
     {
         "title": "AI-Based Email Summarizer Chrome Extension",
         "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
-        "description": "Developed a Chrome Extension integrating GMAIL & OpenAI APIs to fetch recent emails and generate automated summaries sent directly to users' inboxes.",
+        "description": "Built a Chrome extension integrating Gmail and OpenAI APIs to fetch emails and generate automated summaries, implementing OAuth 2.0 authentication.",
         "year": 2024
     },
     {
         "title": "Autonomous Vehicle Simulator",
         "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
-        "description": "Designed a vehicle dynamics simulator to model autonomous vehicle behavior on custom-designed tracks using C++ and SDL2 for real-time rendering.",
+        "description": "Designed a real-time vehicle dynamics simulator using C++ and SDL2 to model autonomous vehicle behavior on custom tracks.",
         "year": 2024
     },
     {
-        "title": "DSC 106 Project: Expository Visualization",
+        "title": "Personal Portfolio Website",
         "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
-        "description": "Designed an expository visualization to effectively communicate insights from a dataset on climate in major U.S. cities, providing a rigorous rationale for design choices and data transformations.",
+        "description": "Developed a responsive portfolio website with HTML, CSS, and JavaScript, integrating GitHub API and D3.js visualizations to track project contributions and development statistics.",
         "year": 2025
+    },
+    {
+        "title": "GenZ Data Trends Analysis",
+        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "description": "Analyzed GenZ data trends using internal APIs, identifying the most common words in recent articles to extract insights for marketing and product decisions.",
+        "year": 2024
+    },
+    {
+        "title": "Meteorological Data Extraction & Visualization",
+        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "description": "Automated the extraction of meteorological data from APIs and developed interactive visualizations for temperature, geolocation, and weather trends using Python.",
+        "year": 2024
     }
 ]
