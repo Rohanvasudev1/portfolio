@@ -422,8 +422,58 @@
       --stats-item-bg: rgba(25, 25, 25, 0.8);
       --work-item-bg: rgba(52, 152, 219, 0.1);
   }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background-color: var(--background-color);
+    padding: 15px 50px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    position: relative;
+    text-decoration: none;
+    color: var(--text-color);
+    text-align: center;
+    font-weight: 500;
+    padding: 0.5em 1em;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--color-accent);
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: transparent;
+    transform: scaleX(0);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+nav a:hover::after {
+    background-color: var(--color-accent);
+    transform: scaleX(1);
+}
+
+nav a.current {
+    font-weight: bold;
+    color: var(--color-accent);
+}
+
+nav a.current::after {
+    background-color: var(--color-accent);
+    transform: scaleX(1);
+}
   
-  * {
+  *{
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -852,7 +902,6 @@
 
   <script src="scripts.js"></script>
   <script src="global.js" type="module"></script>
-
   <script src="index.js" type="module" defer></script>
 
   <!-- <script>
