@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -288,5 +288,487 @@ opacity: 0.7;
 
 
 <script src="global.js" type="module"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en" class="home">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan S Vasudev: Resume</title>
+    <link rel="stylesheet" href="/portfolio/style.css" />
+    <style>
+    :root {
+      --background-color: #f5f5f5;
+      --text-color: #121212;
+      --accent-color: #3498db;
+      --card-bg: #ffffff;
+      --border-color: rgba(52, 152, 219, 0.3);
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --stats-item-bg: #f0f0f0;
+      --work-item-bg: rgba(52, 152, 219, 0.1);
+      --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    [data-theme="dark"] {
+      --background-color: #121212;
+      --text-color: #f5f5f5;
+      --card-bg: rgba(25, 25, 25, 0.8);
+      --border-color: rgba(52, 152, 219, 0.3);
+      --shadow-color: rgba(0, 0, 0, 0.2);
+      --stats-item-bg: rgba(25, 25, 25, 0.8);
+      --work-item-bg: rgba(52, 152, 219, 0.1);
+      --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background-color: var(--background-color);
+      padding: 15px 50px;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      position: relative;
+      text-decoration: none;
+      color: var(--text-color);
+      text-align: center;
+      font-weight: 500;
+      padding: 0.5em 1em;
+      transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: transparent;
+      transform: scaleX(0);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    nav a:hover::after {
+      background-color: var(--accent-color);
+      transform: scaleX(1);
+    }
+
+    nav a.current {
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    nav a.current::after {
+      background-color: var(--accent-color);
+      transform: scaleX(1);
+    }
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  
+    body {
+      margin: 8px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      display: block;
+      max-width: 100ch;
+      padding: 20px;
+      margin-inline: max(1em, (100% - 100ch) / 2);
+      background-color: var(--background-color);
+      color: var(--text-color);
+      position: relative;
+      overflow-x: hidden;
+      line-height: 1.8;
+    }
+  
+    /* Canvas background */
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-color: var(--background-color);
+    }
+  
+    /* Theme toggle */
+    .theme-switch-wrapper {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      z-index: 100;
+    }
+  
+    .theme-switch {
+      display: inline-block;
+      height: 24px;
+      position: relative;
+      width: 50px;
+    }
+  
+    .theme-switch input {
+      display: none;
+    }
+  
+    .slider {
+      background-color: #ccc;
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: .4s;
+      border-radius: 34px;
+    }
+  
+    .slider:before {
+      background-color: #fff;
+      bottom: 4px;
+      content: "";
+      height: 16px;
+      left: 4px;
+      position: absolute;
+      transition: .4s;
+      width: 16px;
+      border-radius: 50%;
+    }
+  
+    input:checked + .slider {
+      background-color: var(--accent-color);
+    }
+  
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+  
+    .theme-icon {
+      margin-left: 10px;
+      font-size: 18px;
+    }
+  
+    /* Content styling */
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--text-color);
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      color: var(--accent-color);
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+      border-bottom: 3px solid var(--accent-color);
+      padding-bottom: 0.3em;
+    }
+
+    h3 {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+  
+    /* Resume Sections */
+    section {
+      background-color: var(--card-bg);
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px var(--shadow-color);
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+    
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px var(--shadow-color);
+    }
+    
+    /* Resume Articles */
+    article {
+      background-color: var(--background-color);
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: var(--box-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 3px solid var(--accent-color);
+    }
+    
+    article:hover {
+      transform: translateX(5px);
+      box-shadow: 0 6px 15px var(--shadow-color);
+    }
+    
+    /* Lists */
+    ul {
+      margin: 15px 0;
+      padding-left: 20px;
+      list-style-type: square;
+    }
+    
+    ul li {
+      margin-bottom: 10px;
+    }
+    
+    /* Section Header */
+    .section-header {
+      text-align: center;
+      margin-bottom: 25px;
+      position: relative;
+    }
+    
+    .section-header h2 {
+      font-size: 1.8rem;
+      display: inline-block;
+      padding-bottom: 5px;
+      border-bottom: 3px solid var(--accent-color);
+    }
+    
+    /* Skills Container */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px auto;
+    }
+    
+    .skill-tag {
+      background-color: var(--stats-item-bg);
+      color: var(--text-color);
+      border: 2px solid var(--accent-color);
+      border-radius: 20px;
+      padding: 8px 15px;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    }
+    
+    .skill-tag:hover {
+      background-color: var(--accent-color);
+      color: white;
+      transform: scale(1.05);
+    }
+    
+    /* Simulated particles */
+    .particle {
+      position: absolute;
+      background-color: #3498db;
+      border-radius: 50%;
+      opacity: 0.7;
+    }
+    
+    .particle-line {
+      position: absolute;
+      background-color: rgba(52, 152, 219, 0.3);
+      transform-origin: 0 0;
+      z-index: -1;
+    }
+    </style>
+</head>
+<body>
+  <canvas id="particle-canvas"></canvas>
+  
+  <div id="particles-container">
+    <div class="particle" style="width: 2px; height: 2px; left: 20%; top: 30%;"></div>
+    <div class="particle" style="width: 3px; height: 3px; left: 40%; top: 20%;"></div>
+    <div class="particle" style="width: 2px; height: 2px; left: 60%; top: 40%;"></div>
+    <div class="particle" style="width: 2px; height: 2px; left: 80%; top: 60%;"></div>
+    <div class="particle" style="width: 3px; height: 3px; left: 30%; top: 70%;"></div>
+    <div class="particle" style="width: 2px; height: 2px; left: 70%; top: 80%;"></div>
+    <div class="particle" style="width: 2px; height: 2px; left: 10%; top: 50%;"></div>
+    <div class="particle" style="width: 3px; height: 3px; left: 50%; top: 10%;"></div>
+    <div class="particle" style="width: 2px; height: 2px; left: 90%; top: 90%;"></div>
+    
+    <div class="particle-line" style="width: 150px; height: 1px; left: 20%; top: 30%; transform: rotate(30deg);"></div>
+    <div class="particle-line" style="width: 200px; height: 1px; left: 40%; top: 20%; transform: rotate(145deg);"></div>
+    <div class="particle-line" style="width: 180px; height: 1px; left: 60%; top: 40%; transform: rotate(210deg);"></div>
+    <div class="particle-line" style="width: 120px; height: 1px; left: 30%; top: 70%; transform: rotate(60deg);"></div>
+  </div>
+
+  <div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider"></div>
+    </label>
+    <div class="theme-icon">☀️</div>
+  </div>
+
+  <h1>Resume</h1>
+
+  <section>
+    <h2>Contact Information</h2>
+    <p>Rohan S Vasudev</p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <p><strong>University of California, San Diego (UCSD HONORS)</strong></p>
+    <p>September 2022 – Expected June 2026</p>
+    <p>Major: Mathematics - Computer Science B.S, Minor: Data Science</p>
+    <p>Relevant courses: Statistical Methods, Advanced Linear Algebra, Calculus, Data Science Foundations & Applications, Data Structures & Object-Oriented Design, Discrete Math, Graph Theory, Computer Organization & Systems Programming, AI: Probabilistic Models, Algorithms</p>
+  </section>
+
+  <section>
+    <h2>Professional Experience</h2>
+    <article>
+      <h3>TIPTOP TECHNOLOGIES</h3>
+      <p>Full Stack Software Engineering Intern</p>
+      <p>January 2024-Present</p>
+      <ul>
+        <li>Led development of AI-based system that generates questions and grades user responses using internally developed LLM ML classification models, achieving an accuracy of over 95.4% (AGILE Development Practices).</li>
+        <li>Developed data storage system that analyzes user responses, enabling AI-driven improvements in question algorithms and adaptability over time.</li>
+        <li>Designed REST API endpoints for CRUD operations on a MySQL-backed database, optimizing for security and performance as well as specific error handling.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>PUBLICIS SAPIENT, London England</h3>
+      <p>Work Experience in Technology Solutions Team</p>
+      <p>July 2024 – August 2024</p>
+      <ul>
+        <li>Integrated GPT Models into a secure, local server using FASTAPI and LANGCHAIN frameworks and Python.</li>
+        <li>Automated the extraction of meteorological data from APIs and developed advanced visualizations for key parameters, including temperature and geolocation metrics with Python and using AGILE Development Methodologies.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>LLOYDS BANKING GROUP, London, England</h3>
+      <p>Intern in Data Analytics Team & Personal Current Accounts (PCA) Team</p>
+      <p>July 2023 – August 2023</p>
+      <ul>
+        <li>Streamlined and automated data mining procedures by leveraging Python and packages like Selenium, ensuring the timely updating of financial statistics that is used to understand consumer behavior and inspire product changes.</li>
+        <li>Used SQL to optimize consumer databases and predictive modelling and PowerBI to create data dashboards.</li>
+        <li>Spearheaded a project on Artificial Intelligence in Banking; suggested improvements specific to Lloyds Banking Group, delivering a comprehensive presentation to PCA Team.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Notable Projects</h2>
+    <article>
+      <h3>Machine Learning Housing Price Predictor (Full Stack)</h3>
+      <p>November 2024-Present</p>
+      <ul>
+        <li>Implemented Random Forest Regressor and TensorFlow Sequential models with robust preprocessing pipeline (scaling, one-hot encoding) and measured performance (RMSE and MAE).</li>
+        <li>Currently working on frontend and implementing additional models (Python).</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Autonomous Vehicle Simulator</h3>
+      <p>December 2024</p>
+      <ul>
+        <li>Designed vehicle dynamics simulator to model autonomous vehicle behavior on custom-designed tracks (C++).</li>
+        <li>Used SDL2 for real time rendering, and creating interface to simulate vehicle motion on various track designs.</li>
+        <li>Simulated vehicle physics including acceleration, drag and curved track dynamics for real functionality.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Automated Football Analytics Website (Full Stack)</h3>
+      <p>November 2024</p>
+      <ul>
+        <li>Designed a full stack football analytics dashboard with React, Flask and AWS, deployed on a secure server environment.</li>
+        <li>Developed a dynamic data pipeline in Python to fetch API data, store it in an S3 bucket and create advanced visualizations.</li>
+        <li>Made a web app using JavaScript and React Router for seamless navigation.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Artificial Intelligence Email Summarizer Chrome Extension (CalHacks)</h3>
+      <p>October 2024</p>
+      <ul>
+        <li>Led a team, using SDLC phases, to develop a chrome extension that integrates with the Gmail API and OpenAI's API to fetch emails and generate concise summaries that are sent back to the user's inbox.</li>
+        <li>Implemented asynchronous JavaScript functions to extract and parse email data (subject, sender, date, body), used JSON for data handling and storage and sent the data securely to OpenAI's API via an API key for summarization.</li>
+        <li>Created an intuitive user interface to display summarized emails in the extension using HTML.</li>
+        <li>Automated the process of sending summarized emails back to user's inbox using JavaScript (Node).</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Recipe Calorie Predictor (Analysis Here)</h3>
+      <p>December 2024</p>
+      <ul>
+        <li>Trained a Random Forest Regressor model to predict recipe calories with 92% accuracy (R² = 0.92) using features like average rating and proportion of protein and sugar levels (Python).</li>
+        <li>Engineered key features (e.g. steps per ingredient) and optimized model with GridSearchCV, reducing RMSE.</li>
+        <li>Performed Data Cleaning, Exploratory Data Analysis and Fairness Analysis to ensure model consistency.</li>
+        <li>Visualized insights to identify trends in univariate and bivariate analyses as well as outcomes of permutation tests.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="section-header">
+      <h2>Technical Skills</h2>
+    </div>
+    <div class="skills-container">
+      <div class="skill-tag">Python</div>
+      <div class="skill-tag">Java</div>
+      <div class="skill-tag">C</div>
+      <div class="skill-tag">C++</div>
+      <div class="skill-tag">R</div>
+      <div class="skill-tag">SQL</div>
+      <div class="skill-tag">JavaScript</div>
+      <div class="skill-tag">HTML</div>
+      <div class="skill-tag">BASH</div>
+      <div class="skill-tag">ARM 64-Bit Assembly</div>
+      
+      <div class="skill-tag">Scikit-learn</div>
+      <div class="skill-tag">TensorFlow</div>
+      <div class="skill-tag">Pandas</div>
+      <div class="skill-tag">NumPy</div>
+      <div class="skill-tag">PyTorch</div>
+      <div class="skill-tag">D3.js</div>
+      
+      <div class="skill-tag">AWS</div>
+      <div class="skill-tag">Docker</div>
+      <div class="skill-tag">GitHub</div>
+      <div class="skill-tag">PostgreSQL</div>
+      <div class="skill-tag">MongoDB</div>
+      
+      <div class="skill-tag">Node.js</div>
+      <div class="skill-tag">React.js</div>
+      <div class="skill-tag">Angular</div>
+      <div class="skill-tag">Maven</div>
+      <div class="skill-tag">Spring</div>
+      <div class="skill-tag">HTTP</div>
+      
+      <div class="skill-tag">Machine Learning</div>
+      <div class="skill-tag">NLP</div>
+      <div class="skill-tag">Data Analysis</div>
+      <div class="skill-tag">Statistical Modeling</div>
+      <div class="skill-tag">Probability & Statistics</div>
+      
+      <div class="skill-tag">Object Oriented Programming</div>
+      <div class="skill-tag">Data Structures</div>
+      <div class="skill-tag">Algorithms</div>
+      <div class="skill-tag">Graph Theory</div>
+      <div class="skill-tag">Stochastic Processes</div>
+      <div class="skill-tag">Linear Algebra</div>
+    </div>
+  </section>
+
+  <script src="global.js" type="module"></script>
+
 </body>
 </html>
