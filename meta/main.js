@@ -121,7 +121,7 @@ function updateTooltipContent(commit, event = null) {
         return;
     }
 
-   
+    // Update tooltip content
     link.href = commit.url;
     link.textContent = commit.id;
     date.textContent = commit.datetime.toLocaleDateString("en", { dateStyle: "full" });
@@ -132,8 +132,16 @@ function updateTooltipContent(commit, event = null) {
     tooltip.style.display = "block"; 
 
     if (event) {
-        tooltip.style.left = `${event.pageX + 10}px`;
-        tooltip.style.top = `${event.pageY + 10}px`;
+        // Position tooltip directly next to the point
+        // Calculate position based on circle radius
+        const pointRadius = parseFloat(event.currentTarget.getAttribute("r"));
+        
+        // Position tooltip to the right of the point with minimal offset
+        tooltip.style.left = `${event.pageX + pointRadius + 5}px`;
+        
+        // Center tooltip vertically with the point
+        const tooltipHeight = tooltip.offsetHeight;
+        tooltip.style.top = `${event.pageY - (tooltipHeight / 2)}px`;
     }
 }
 
