@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" class="home">
 <head>
     <meta charset="UTF-8">
@@ -401,5 +401,619 @@
     <script src="../global.js" type="module"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script defer src="main.js"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en" class="home">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan Vasudev: Meta and GitHub Stats</title>
+    <link rel="stylesheet" href="/portfolio/style.css" />
+    <style>
+    :root {
+      --background-color: #f5f5f5;
+      --text-color: #121212;
+      --accent-color: #3498db;
+      --card-bg: #ffffff;
+      --border-color: rgba(52, 152, 219, 0.3);
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --stats-item-bg: #f0f0f0;
+      --work-item-bg: rgba(52, 152, 219, 0.1);
+      --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    [data-theme="dark"] {
+      --background-color: #121212;
+      --text-color: #f5f5f5;
+      --card-bg: rgba(25, 25, 25, 0.8);
+      --border-color: rgba(52, 152, 219, 0.3);
+      --shadow-color: rgba(0, 0, 0, 0.2);
+      --stats-item-bg: rgba(25, 25, 25, 0.8);
+      --work-item-bg: rgba(52, 152, 219, 0.1);
+      --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background-color: var(--background-color);
+      padding: 15px 50px;
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      position: relative;
+      text-decoration: none;
+      color: var(--text-color);
+      text-align: center;
+      font-weight: 500;
+      padding: 0.5em 1em;
+      transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: transparent;
+      transform: scaleX(0);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    nav a:hover::after {
+      background-color: var(--accent-color);
+      transform: scaleX(1);
+    }
+
+    nav a.current {
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    nav a.current::after {
+      background-color: var(--accent-color);
+      transform: scaleX(1);
+    }
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  
+    body {
+      margin: 8px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      display: block;
+      max-width: 100ch;
+      padding: 20px;
+      margin-inline: max(1em, (100% - 100ch) / 2);
+      background-color: var(--background-color);
+      color: var(--text-color);
+      position: relative;
+      overflow-x: hidden;
+    }
+  
+    /* Canvas background */
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-color: var(--background-color);
+    }
+  
+    /* Theme toggle */
+    .theme-switch-wrapper {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      z-index: 100;
+    }
+  
+    .theme-switch {
+      display: inline-block;
+      height: 24px;
+      position: relative;
+      width: 50px;
+    }
+  
+    .theme-switch input {
+      display: none;
+    }
+  
+    .slider {
+      background-color: #ccc;
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: .4s;
+      border-radius: 34px;
+    }
+  
+    .slider:before {
+      background-color: #fff;
+      bottom: 4px;
+      content: "";
+      height: 16px;
+      left: 4px;
+      position: absolute;
+      transition: .4s;
+      width: 16px;
+      border-radius: 50%;
+    }
+  
+    input:checked + .slider {
+      background-color: var(--accent-color);
+    }
+  
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+  
+    .theme-icon {
+      margin-left: 10px;
+      font-size: 18px;
+    }
+  
+    /* Content styling */
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--text-color);
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.8em;
+      color: var(--accent-color);
+      margin-top: 1.5em;
+      margin-bottom: 0.8em;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--text-color);
+    }
+  
+    /* GitHub Stats Section */
+    .github-stats-section {
+      margin: 40px auto;
+      max-width: 800px;
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      padding: 25px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 8px 32px var(--shadow-color);
+      border: 1px solid var(--border-color);
+    }
+    
+    .github-stats-header {
+      text-align: center;
+      margin-bottom: 25px;
+      position: relative;
+    }
+    
+    .github-stats-header h2 {
+      font-size: 1.8rem;
+      display: inline-block;
+      padding-bottom: 5px;
+      border-bottom: 3px solid var(--accent-color);
+      margin-top: 0;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      background-color: transparent;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .stat-item {
+      background-color: var(--stats-item-bg);
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px var(--shadow-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(52, 152, 219, 0.2);
+      border: 1px solid rgba(52, 152, 219, 0.5);
+    }
+    
+    .stat-label {
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      color: var(--text-color);
+      background-color: transparent;
+    }
+    
+    .stat-value {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      background-color: transparent;
+    }
+
+    /* Section Styling */
+    .section {
+      margin: 50px auto;
+      max-width: 800px;
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      padding: 25px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 8px 32px var(--shadow-color);
+      border: 1px solid var(--border-color);
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .section-header h2 {
+      font-size: 1.8rem;
+      display: inline-block;
+      padding-bottom: 5px;
+      border-bottom: 3px solid var(--accent-color);
+      margin-top: 0;
+    }
+    
+    /* Summary Stats */
+    #summary-stats {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 20px auto;
+      padding: 20px;
+      background: var(--card-bg);
+      border-radius: 10px;
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      box-shadow: 0 8px 32px var(--shadow-color);
+      border: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .summary-item {
+      text-align: center;
+      padding: 10px;
+      min-width: 120px;
+    }
+    
+    .summary-item dt {
+      font-size: 0.85rem;
+      color: var(--text-color);
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    
+    .summary-item dd {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 5px 0;
+      color: var(--accent-color);
+    }
+    
+    /* Chart Section */
+    #chart {
+      margin: 20px auto;
+      max-width: 800px;
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      padding: 25px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 8px 32px var(--shadow-color);
+      border: 1px solid var(--border-color);
+    }
+    
+    /* Language Breakdown */
+    #language-breakdown {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      text-align: center;
+      margin: 20px auto;
+      padding: 20px;
+      background: var(--card-bg);
+      border-radius: 10px;
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      box-shadow: 0 8px 32px var(--shadow-color);
+      border: 1px solid var(--border-color);
+    }
+    
+    #language-breakdown dt {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--text-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    
+    #language-breakdown dd {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      margin: 5px 0;
+    }
+    
+    #language-breakdown dd span {
+      font-size: 0.9rem;
+      color: var(--text-color);
+      opacity: 0.7;
+      display: block;
+      margin-top: 5px;
+    }
+    
+    /* D3 Chart Styles */
+    .gridlines line {
+      stroke: var(--text-color);
+      stroke-opacity: 0.2;
+      shape-rendering: crispEdges;
+    }
+    
+    .gridlines path {
+      stroke-width: 0;
+    }
+    
+    /* Tooltip Styles */
+    .tooltip {
+      position: fixed;
+      left: 1em;
+      background: var(--card-bg);
+      color: var(--text-color);
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 14px;
+      display: none;
+      box-shadow: 0 8px 32px var(--shadow-color);
+      backdrop-filter: blur(5px);
+      border: 1px solid var(--border-color);
+      pointer-events: none;
+      transition: opacity 0.2s ease-in-out;
+      z-index: 1000;
+    }
+    
+    #commit-link {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    #commit-link:hover {
+      text-decoration: underline;
+    }
+    
+    #selection-count {
+      text-align: center;
+      font-weight: bold;
+      margin: 15px 0;
+      color: var(--accent-color);
+    }
+    
+    dl.info {
+      transition-duration: 500ms;
+      transition-property: opacity, visibility;
+    }
+    
+    dl.info[hidden]:not(:hover, :focus-within) {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .info {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 8px;
+      align-items: center;
+    }
+    
+    .info dt {
+      font-weight: bold;
+      color: var(--text-color);
+      opacity: 0.7;
+    }
+    
+    .info dd {
+      margin: 0;
+      font-weight: bold;
+    }
+    
+    /* D3 Selection Styles */
+    circle {
+      transition: 200ms;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+    
+    circle:hover {
+      transform: scale(1.5);
+    }
+    
+    circle.selected {
+      fill: var(--accent-color);
+    }
+    
+    @keyframes marching-ants {
+      to {
+        stroke-dashoffset: -8;
+      }
+    }
+    
+    .selection {
+      fill-opacity: 0.1;
+      stroke: var(--accent-color);
+      stroke-opacity: 0.7;
+      stroke-dasharray: 5 3;
+      animation: marching-ants 2s linear infinite;
+    }
+    
+    /* Simulated particles */
+    .particle {
+      position: absolute;
+      background-color: #3498db;
+      border-radius: 50%;
+      opacity: 0.7;
+    }
+    
+    .particle-line {
+      position: absolute;
+      background-color: rgba(52, 152, 219, 0.3);
+      transform-origin: 0 0;
+      z-index: -1;
+    }
+    </style>
+</head>
+<body>
+  <canvas id="particle-canvas"></canvas>
+  
+  <div id="particles-container">
+    <div class="particle" style="width: 2px; height: 2px; left: 20%; top: 30%;"></div>
+    <div class="particle" style="width: 3px; height: 3px; left: 40%; top: 20%;"></div>
+    <div class="particle" style="width: 2px; height: 2px; left: 60%; top: 40%;"></div>
+    <div class="particle" style="width: 2px; height: 2px; left: 80%; top: 60%;"></div>
+    <div class="particle" style="width: 3px; height: 3px; left: 30%; top: 70%;"></div>
+    <div class="particle" style="width: 2px; height: 2px; left: 70%; top: 80%;"></div>
+    <div class="particle" style="width: 2px; height: 2px; left: 10%; top: 50%;"></div>
+    <div class="particle" style="width: 3px; height: 3px; left: 50%; top: 10%;"></div>
+    <div class="particle" style="width: 2px; height: 2px; left: 90%; top: 90%;"></div>
+    
+    <div class="particle-line" style="width: 150px; height: 1px; left: 20%; top: 30%; transform: rotate(30deg);"></div>
+    <div class="particle-line" style="width: 200px; height: 1px; left: 40%; top: 20%; transform: rotate(145deg);"></div>
+    <div class="particle-line" style="width: 180px; height: 1px; left: 60%; top: 40%; transform: rotate(210deg);"></div>
+    <div class="particle-line" style="width: 120px; height: 1px; left: 30%; top: 70%; transform: rotate(60deg);"></div>
+  </div>
+
+  <div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider"></div>
+    </label>
+    <div class="theme-icon">☀️</div>
+  </div>
+
+  <h1>Meta</h1>
+
+  <section class="github-stats-section" id="github-profile">
+    <div class="github-stats-header">
+      <h2>My GitHub Stats</h2>
+    </div>
+    
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-label">FOLLOWERS</div>
+        <div class="stat-value" id="followers">Loading...</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-label">FOLLOWING</div>
+        <div class="stat-value" id="following">Loading...</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-label">PUBLIC REPOS</div>
+        <div class="stat-value" id="repos">Loading...</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-label">PUBLIC GISTS</div>
+        <div class="stat-value" id="gists">Loading...</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Website Statistics</h2>
+    </div>
+    <p>The page includes stats about the code of this website</p>
+    <div id="summary-stats"></div>
+  </section>
+
+  <p id="selection-count">No commits selected</p>
+  
+  <section class="section">
+    <div class="section-header">
+      <h2>Commits by Time of Day</h2>
+      <p>Select for more details</p>
+    </div>
+    <div id="chart"></div>
+  </section>
+
+  <dl id="commit-tooltip" class="info tooltip">
+    <dt>Commit</dt>
+    <dd>
+      <a href="" id="commit-link" target="_blank"></a>
+    </dd>
+    
+    <dt>Date</dt>
+    <dd id="commit-date"></dd>
+    
+    <dt>Time</dt>
+    <dd id="commit-time"></dd>
+    
+    <dt>Author</dt>
+    <dd id="commit-author"></dd>
+    
+    <dt>Lines Edited</dt>
+    <dd id="commit-lines"></dd>
+  </dl>
+    
+  <section class="section">
+    <div class="section-header">
+      <h2>Language Breakdown</h2>
+    </div>
+    <dl id="language-breakdown" class="stats"></dl>
+  </section>
+
+  <script src="../global.js" type="module"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script defer src="main.js"></script>
 </body>
 </html>

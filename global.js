@@ -129,46 +129,41 @@ const linkPath = new URL(p.url, domain).pathname.replace(/\/$/, "").toLowerCase(
 // themeSwitcher.value = savedTheme;
 // updateTheme(savedTheme);
 
-// themeSwitcher.addEventListener("input", (event) => {
-//   const selectedTheme = event.target.value;
-//   updateTheme(selectedTheme);
-//   localStorage.setItem("colorScheme", selectedTheme);
-//   console.log("Theme updated to:", selectedTheme);
-// });
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleSwitch = document.querySelector('#checkbox');
+  const themeIcon = document.querySelector('.theme-icon');
+  
+  // Initialize theme from localStorage
+  const savedTheme = localStorage.getItem("themePref") || "light";
+  
+  // Apply the saved theme
+  if (savedTheme === "dark") {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    toggleSwitch.checked = true;
+    themeIcon.textContent = '🌙';
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    toggleSwitch.checked = false;
+    themeIcon.textContent = '☀️';
+  }
+  
+  // Listen for changes to the theme toggle
+  toggleSwitch.addEventListener('change', function() {
+    if (this.checked) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeIcon.textContent = '🌙';
+      localStorage.setItem("themePref", "dark");
+      console.log("Theme switched to: dark");
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      themeIcon.textContent = '☀️';
+      localStorage.setItem("themePref", "light");
+      console.log("Theme switched to: light");
+    }
+  });
+});
 
-// document.body.insertAdjacentHTML(
-//   "afterbegin",
-//   `<button id="themeToggle" class="theme-toggle-btn">Toggle Theme</button>`
-// );
-
-// const themeToggleBtn = document.getElementById("themeToggle");
-
-
-// const savedTheme = localStorage.getItem("themePref") || "light";
-// if (savedTheme === "dark") {
-//   document.documentElement.classList.add("dark");
-// }
-
-
-// themeToggleBtn.addEventListener("click", () => {
-//   document.documentElement.classList.toggle("dark");
-//   const isDark = document.documentElement.classList.contains("dark");
-//   localStorage.setItem("themePref", isDark ? "dark" : "light");
-//   console.log("Theme toggled. Now:", isDark ? "dark" : "light");
-// });
-
-const toggleSwitch = document.querySelector('#checkbox');
-    const themeIcon = document.querySelector('.theme-icon');
-    
-    toggleSwitch.addEventListener('change', function() {
-      if (this.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        themeIcon.textContent = '🌙';
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        themeIcon.textContent = '☀️';
-      }
-    });
+ 
 
 export function renderProjects(project, containerElement, headingLevel = "h2") {
   if (!project || typeof project !== "object") {
