@@ -136,26 +136,39 @@ const linkPath = new URL(p.url, domain).pathname.replace(/\/$/, "").toLowerCase(
 //   console.log("Theme updated to:", selectedTheme);
 // });
 
-document.body.insertAdjacentHTML(
-  "afterbegin",
-  `<button id="themeToggle" class="theme-toggle-btn">Toggle Theme</button>`
-);
+// document.body.insertAdjacentHTML(
+//   "afterbegin",
+//   `<button id="themeToggle" class="theme-toggle-btn">Toggle Theme</button>`
+// );
 
-const themeToggleBtn = document.getElementById("themeToggle");
-
-
-const savedTheme = localStorage.getItem("themePref") || "light";
-if (savedTheme === "dark") {
-  document.documentElement.classList.add("dark");
-}
+// const themeToggleBtn = document.getElementById("themeToggle");
 
 
-themeToggleBtn.addEventListener("click", () => {
-  document.documentElement.classList.toggle("dark");
-  const isDark = document.documentElement.classList.contains("dark");
-  localStorage.setItem("themePref", isDark ? "dark" : "light");
-  console.log("Theme toggled. Now:", isDark ? "dark" : "light");
-});
+// const savedTheme = localStorage.getItem("themePref") || "light";
+// if (savedTheme === "dark") {
+//   document.documentElement.classList.add("dark");
+// }
+
+
+// themeToggleBtn.addEventListener("click", () => {
+//   document.documentElement.classList.toggle("dark");
+//   const isDark = document.documentElement.classList.contains("dark");
+//   localStorage.setItem("themePref", isDark ? "dark" : "light");
+//   console.log("Theme toggled. Now:", isDark ? "dark" : "light");
+// });
+
+const toggleSwitch = document.querySelector('#checkbox');
+    const themeIcon = document.querySelector('.theme-icon');
+    
+    toggleSwitch.addEventListener('change', function() {
+      if (this.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.textContent = '🌙';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeIcon.textContent = '☀️';
+      }
+    });
 
 export function renderProjects(project, containerElement, headingLevel = "h2") {
   if (!project || typeof project !== "object") {
