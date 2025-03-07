@@ -133,10 +133,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const toggleSwitch = document.querySelector('#checkbox');
   const themeIcon = document.querySelector('.theme-icon');
   
-  // Initialize theme from localStorage
+
   const savedTheme = localStorage.getItem("themePref") || "light";
   
-  // Apply the saved theme
+ 
   if (savedTheme === "dark") {
     document.documentElement.setAttribute('data-theme', 'dark');
     toggleSwitch.checked = true;
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
     themeIcon.textContent = '☀️';
   }
   
-  // Listen for changes to the theme toggle
+ 
   toggleSwitch.addEventListener('change', function() {
     if (this.checked) {
       document.documentElement.setAttribute('data-theme', 'dark');
