@@ -1,4 +1,4 @@
-// Fixed version
+
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 
 console.log("IT'S ALIVE!");
@@ -28,14 +28,14 @@ async function initialize() {
       renderProjects(project, projectsContainer, 'h2');
     });
     
-    // Render pie chart
+    
     renderPieChart(processProjectsData(projects));
   } catch (error) {
     console.error("Error initializing projects:", error);
   }
 }
 
-// Call the initialize function
+
 initialize();
 
 function processProjectsData(filteredProjects) {

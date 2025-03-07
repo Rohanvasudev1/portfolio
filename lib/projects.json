@@ -1,73 +1,73 @@
 [
     {
         "title": "AI-Driven Question Generation and Grading System",
-        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23f0f9ff' /%3E%3Ccircle cx='200' cy='100' r='60' fill='%23bfdbfe' /%3E%3Cpath d='M200 50 L200 150 M150 100 L250 100' stroke='%231e40af' stroke-width='6' /%3E%3Cpath d='M160 70 L180 70 M160 130 L180 130 M220 70 L240 70 M220 130 L240 130' stroke='%231e40af' stroke-width='4' /%3E%3Cpath d='M130 80 L130 120 M270 80 L270 120' stroke='%231e40af' stroke-width='4' /%3E%3Ctext x='40' y='30' fill='%231e40af' font-size='20' font-weight='bold'%3EAI Question Generator%3C/text%3E%3Ctext x='290' y='180' fill='%231e40af' font-size='16'%3E95.4%25%3C/text%3E%3C/svg%3E",
         "description": "Developed an AI-based system that generates questions and grades user responses using NLP and ML classification models, achieving 95.4% accuracy.",
         "year": 2024
     },
     {
         "title": "CRUD REST API Development",
-        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23f0fdf4' /%3E%3Crect x='50' y='50' width='300' height='100' fill='%23bbf7d0' rx='10' ry='10' /%3E%3Ctext x='110' y='100' font-size='22' font-weight='bold' fill='%23166534'%3EREST API%3C/text%3E%3Cpath d='M50 130 L120 130 L120 150 L180 150' stroke='%23166534' stroke-width='3' fill='none' /%3E%3Cpath d='M350 130 L280 130 L280 150 L220 150' stroke='%23166534' stroke-width='3' fill='none' /%3E%3Crect x='180' y='140' width='40' height='20' fill='%23166534' /%3E%3Ctext x='130' y='30' font-size='18' fill='%23166534'%3ECREATE · READ · UPDATE · DELETE%3C/text%3E%3C/svg%3E",
         "description": "Designed REST API endpoints for operations on a PostgreSQL database, implementing security measures and optimizing error handling.",
         "year": 2024
     },
     {
         "title": "User Tier Management Automation",
-        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23eff6ff' /%3E%3Crect x='150' y='30' width='100' height='30' rx='5' ry='5' fill='%2393c5fd' /%3E%3Crect x='150' y='85' width='100' height='30' rx='5' ry='5' fill='%2360a5fa' /%3E%3Crect x='150' y='140' width='100' height='30' rx='5' ry='5' fill='%232563eb' /%3E%3Ctext x='165' y='50' fill='%231e3a8a' font-size='14'%3EBasic Tier%3C/text%3E%3Ctext x='165' y='105' fill='%23fff' font-size='14'%3EPro Tier%3C/text%3E%3Ctext x='165' y='160' fill='%23fff' font-size='14'%3EEnterprise%3C/text%3E%3Cpath d='M200 60 L200 85 M200 115 L200 140' stroke='%231e3a8a' stroke-width='2' /%3E%3Cpath d='M120 100 C80 100, 80 100, 80 70 L80 50 L100 70 L80 50 L60 70' stroke='%231e3a8a' stroke-width='2' fill='none' /%3E%3Cpath d='M280 100 C320 100, 320 100, 320 130 L320 150 L300 130 L320 150 L340 130' stroke='%231e3a8a' stroke-width='2' fill='none' /%3E%3C/svg%3E",
         "description": "Automated user tier upgrades and downgrades using Python and Docker, ensuring accurate logging and seamless execution via internal APIs.",
         "year": 2024
     },
     {
         "title": "Scalable Loan Risk Pricing and Prediction System",
-        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23fef2f2' /%3E%3Cpath d='M50 150 L350 150' stroke='%23000000' stroke-width='2' /%3E%3Cpath d='M50 50 L50 150' stroke='%23000000' stroke-width='2' /%3E%3Cpath d='M50 130 L70 120 L90 140 L110 90 L130 110 L150 85 L170 100 L190 70 L210 80 L230 50 L250 65 L270 40 L290 60 L310 30 L330 45 L350 25' stroke='%23ef4444' stroke-width='3' fill='none' /%3E%3Ccircle cx='110' cy='90' r='5' fill='%23b91c1c' /%3E%3Ccircle cx='190' cy='70' r='5' fill='%23b91c1c' /%3E%3Ccircle cx='270' cy='40' r='5' fill='%23b91c1c' /%3E%3Ccircle cx='330' cy='45' r='5' fill='%23b91c1c' /%3E%3Ctext x='30' y='30' font-size='16' fill='%23b91c1c' font-weight='bold'%3ERisk Assessment%3C/text%3E%3Ctext x='260' y='170' font-size='16' fill='%23b91c1c'%3EPrediction Accuracy%3C/text%3E%3C/svg%3E",
         "description": "Developed an ML model for loan risk pricing, training on a 500,000-row dataset, calculating probability of default, loss given default, and expected loss for financial risk assessment.",
         "year": 2025
     },
     {
         "title": "Wearable Data Analysis Website for Glycemic Variability",
-        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23f5f3ff' /%3E%3Ccircle cx='200' cy='100' r='70' fill='%23ddd6fe' stroke='%237c3aed' stroke-width='2' /%3E%3Cpath d='M200 30 L200 170' stroke='%237c3aed' stroke-width='2' /%3E%3Cpath d='M130 100 L270 100' stroke='%237c3aed' stroke-width='2' /%3E%3Cpath d='M150 50 L250 150' stroke='%237c3aed' stroke-width='2' /%3E%3Cpath d='M150 150 L250 50' stroke='%237c3aed' stroke-width='2' /%3E%3Cpath d='M160 60 C180 140, 220 60, 240 140' stroke='%237c3aed' stroke-width='3' fill='none' /%3E%3Ccircle cx='170' cy='80' r='5' fill='%237c3aed' /%3E%3Ccircle cx='190' cy='120' r='5' fill='%237c3aed' /%3E%3Ccircle cx='210' cy='70' r='5' fill='%237c3aed' /%3E%3Ccircle cx='230' cy='110' r='5' fill='%237c3aed' /%3E%3Crect x='300' y='40' width='60' height='10' fill='%23c4b5fd' /%3E%3Crect x='300' y='60' width='40' height='10' fill='%23a78bfa' /%3E%3Crect x='300' y='80' width='80' height='10' fill='%238b5cf6' /%3E%3Crect x='300' y='100' width='30' height='10' fill='%237c3aed' /%3E%3C/svg%3E",
         "description": "Built an interactive visualization platform using D3.js to analyze nutrient intake trends from wearable sensor data, implementing brushing, tooltips, and dynamic filtering.",
         "year": 2025
     },
     {
         "title": "Recipe Calorie Predictor",
-        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23fef3c7' /%3E%3Ccircle cx='150' cy='100' r='60' fill='%23fde68a' stroke='%23d97706' stroke-width='2' /%3E%3Cpath d='M130 70 L170 70' stroke='%23d97706' stroke-width='4' /%3E%3Cpath d='M130 90 L170 90' stroke='%23d97706' stroke-width='4' /%3E%3Cpath d='M130 110 L170 110' stroke='%23d97706' stroke-width='4' /%3E%3Cpath d='M130 130 L170 130' stroke='%23d97706' stroke-width='4' /%3E%3Ctext x='240' y='70' font-size='18' fill='%23d97706' font-weight='bold'%3E92%25%3C/text%3E%3Ctext x='225' y='90' font-size='16' fill='%23d97706'%3EAccuracy%3C/text%3E%3Ctext x='260' y='130' font-size='22' fill='%23d97706'%3E🍲%3C/text%3E%3Ctext x='220' y='160' font-size='22' fill='%23d97706'%3E🥗%3C/text%3E%3Ctext x='300' y='150' font-size='22' fill='%23d97706'%3E🍔%3C/text%3E%3C/svg%3E",
         "description": "Trained a Random Forest Regressor model to predict recipe calories with 92% accuracy using Python, optimizing model parameters with GridSearchCV.",
         "year": 2024
     },
     {
         "title": "Automated Football Analytics Website",
-        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23ecfdf5' /%3E%3Crect x='50' y='50' width='300' height='120' fill='%23a7f3d0' rx='10' ry='10' /%3E%3Ccircle cx='150' cy='110' r='40' fill='%2310b981' stroke='%23ffffff' stroke-width='2' /%3E%3Cpath d='M150 70 L150 150 M110 110 L190 110' stroke='%23ffffff' stroke-width='2' /%3E%3Cpath d='M120 80 L180 140 M120 140 L180 80' stroke='%23ffffff' stroke-width='2' /%3E%3Crect x='230' y='80' width='100' height='10' fill='%23059669' /%3E%3Crect x='230' y='100' width='70' height='10' fill='%23059669' /%3E%3Crect x='230' y='120' width='90' height='10' fill='%23059669' /%3E%3Ctext x='80' y='40' font-size='16' fill='%23059669' font-weight='bold'%3EFootball Analytics Dashboard%3C/text%3E%3C/svg%3E",
         "description": "Developed a full-stack football analytics dashboard using React, Flask, and AWS, with automated API data fetching and advanced visualizations.",
         "year": 2024
     },
     {
         "title": "AI-Based Email Summarizer Chrome Extension",
-        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23f0f9ff' /%3E%3Crect x='70' y='40' width='260' height='120' rx='5' ry='5' fill='%23bae6fd' stroke='%230284c7' stroke-width='2' /%3E%3Crect x='90' y='60' width='220' height='20' rx='3' ry='3' fill='%230284c7' /%3E%3Crect x='90' y='90' width='220' height='50' rx='3' ry='3' fill='%23ffffff' /%3E%3Cpath d='M100 100 L180 100' stroke='%230284c7' stroke-width='2' /%3E%3Cpath d='M100 110 L200 110' stroke='%230284c7' stroke-width='2' /%3E%3Cpath d='M100 120 L160 120' stroke='%230284c7' stroke-width='2' /%3E%3Cpath d='M100 130 L220 130' stroke='%230284c7' stroke-width='2' /%3E%3Ccircle cx='280' cy='115' r='15' fill='%230284c7' /%3E%3Ctext x='273' y='120' font-size='14' fill='%23ffffff' font-weight='bold'%3EAI%3C/text%3E%3Ctext x='70' y='180' font-size='14' fill='%230284c7' font-weight='bold'%3EEmail Summarizer Chrome Extension%3C/text%3E%3C/svg%3E",
         "description": "Built a Chrome extension integrating Gmail and OpenAI APIs to fetch emails and generate automated summaries, implementing OAuth 2.0 authentication.",
         "year": 2024
     },
     {
         "title": "Autonomous Vehicle Simulator",
-        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23fafafa' /%3E%3Crect x='50' y='120' width='300' height='30' fill='%23404040' /%3E%3Cpath d='M60 120 L80 120 L90 130 L70 130 Z' fill='%23737373' /%3E%3Cpath d='M340 120 L320 120 L310 130 L330 130 Z' fill='%23737373' /%3E%3Crect x='100' y='90' width='100' height='40' rx='10' ry='10' fill='%232563eb' /%3E%3Crect x='200' y='90' width='100' height='40' rx='10' ry='10' fill='%232563eb' /%3E%3Ccircle cx='125' cy='130' r='10' fill='%230f172a' /%3E%3Ccircle cx='175' cy='130' r='10' fill='%230f172a' /%3E%3Ccircle cx='225' cy='130' r='10' fill='%230f172a' /%3E%3Ccircle cx='275' cy='130' r='10' fill='%230f172a' /%3E%3Cpath d='M150 70 C150 40, 250 40, 250 70' stroke='%23d4d4d4' stroke-width='2' fill='none' /%3E%3Ctext x='120' y='40' font-size='16' fill='%230f172a' font-weight='bold'%3EVehicle Simulator%3C/text%3E%3Cpath d='M50 150 C100 160, 300 160, 350 150' stroke='%23d4d4d4' stroke-width='2' fill='none' /%3E%3C/svg%3E",
         "description": "Designed a real-time vehicle dynamics simulator using C++ and SDL2 to model autonomous vehicle behavior on custom tracks.",
         "year": 2024
     },
     {
         "title": "Personal Portfolio Website",
-        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23f3f4f6' /%3E%3Crect x='50' y='40' width='300' height='30' rx='5' ry='5' fill='%234b5563' /%3E%3Crect x='60' y='48' width='60' height='15' rx='3' ry='3' fill='%239ca3af' /%3E%3Crect x='240' y='48' width='30' height='15' rx='3' ry='3' fill='%239ca3af' /%3E%3Crect x='280' y='48' width='30' height='15' rx='3' ry='3' fill='%239ca3af' /%3E%3Crect x='320' y='48' width='20' height='15' rx='3' ry='3' fill='%239ca3af' /%3E%3Crect x='130' y='48' width='30' height='15' rx='3' ry='3' fill='%239ca3af' /%3E%3Crect x='170' y='48' width='30' height='15' rx='3' ry='3' fill='%239ca3af' /%3E%3Crect x='50' y='80' width='140' height='100' rx='5' ry='5' fill='%23d1d5db' /%3E%3Crect x='210' y='80' width='140' height='45' rx='5' ry='5' fill='%23d1d5db' /%3E%3Crect x='210' y='135' width='140' height='45' rx='5' ry='5' fill='%23d1d5db' /%3E%3Ccircle cx='120' cy='120' r='30' fill='%234b5563' /%3E%3Ctext x='110' y='125' font-size='16' fill='%23f9fafb' font-weight='bold'%3ECV%3C/text%3E%3Ctext x='250' y='110' font-size='12' fill='%234b5563'%3EProjects%3C/text%3E%3Ctext x='250' y='165' font-size='12' fill='%234b5563'%3EContact%3C/text%3E%3C/svg%3E",
         "description": "Developed a responsive portfolio website with HTML, CSS, and JavaScript, integrating GitHub API and D3.js visualizations to track project contributions and development statistics.",
         "year": 2025
     },
     {
         "title": "GenZ Data Trends Analysis",
-        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23fdf2f8' /%3E%3Crect x='50' y='40' width='300' height='120' rx='10' ry='10' fill='%23fbcfe8' /%3E%3Ctext x='110' y='70' font-size='14' fill='%239d174d' font-weight='bold'%3EGenZ Trending Terms%3C/text%3E%3Crect x='70' y='90' width='120' height='20' rx='5' ry='5' fill='%23ec4899' /%3E%3Crect x='70' y='120' width='90' height='20' rx='5' ry='5' fill='%23be185d' /%3E%3Crect x='210' y='90' width='60' height='20' rx='5' ry='5' fill='%23ec4899' /%3E%3Crect x='210' y='120' width='110' height='20' rx='5' ry='5' fill='%23be185d' /%3E%3Ctext x='100' y='105' font-size='12' fill='%23ffffff'%3Eaesthetic%3C/text%3E%3Ctext x='95' y='135' font-size='12' fill='%23ffffff'%3Evibes%3C/text%3E%3Ctext x='225' y='105' font-size='12' fill='%23ffffff'%3Eslay%3C/text%3E%3Ctext x='245' y='135' font-size='12' fill='%23ffffff'%3Erizz%3C/text%3E%3C/svg%3E",
         "description": "Analyzed GenZ data trends using internal APIs, identifying the most common words in recent articles to extract insights for marketing and product decisions.",
         "year": 2024
     },
     {
         "title": "Meteorological Data Extraction & Visualization",
-        "image": "https://castlewoodassistedliving.com/wp-content/uploads/2021/01/image-coming-soon-placeholder.png",
+        "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23f0fdfa' /%3E%3Cpath d='M50 150 L350 150' stroke='%230f766e' stroke-width='2' /%3E%3Cpath d='M50 50 L50 150' stroke='%230f766e' stroke-width='2' /%3E%3Cpath d='M50 120 L90 110 L130 130 L170 90 L210 100 L250 70 L290 80 L330 50' stroke='%232dd4bf' stroke-width='3' fill='none' /%3E%3Cpath d='M50 140 L90 100 L130 120 L170 110 L210 130 L250 110 L290 120 L330 90' stroke='%230f766e' stroke-width='3' fill='none' /%3E%3Ccircle cx='170' cy='90' r='5' fill='%230f766e' /%3E%3Ccircle cx='250' cy='70' r='5' fill='%230f766e' /%3E%3Ccircle cx='330' cy='50' r='5' fill='%230f766e' /%3E%3Ctext x='80' y='30' font-size='16' fill='%230f766e' font-weight='bold'%3ETemperature %26 Weather Trends%3C/text%3E%3Ctext x='60' y='170' font-size='10' fill='%230f766e'%3EJan%3C/text%3E%3Ctext x='100' y='170' font-size='10' fill='%230f766e'%3EFeb%3C/text%3E%3Ctext x='140' y='170' font-size='10' fill='%230f766e'%3EMar%3C/text%3E%3Ctext x='180' y='170' font-size='10' fill='%230f766e'%3EApr%3C/text%3E%3Ctext x='220' y='170' font-size='10' fill='%230f766e'%3EMay%3C/text%3E%3Ctext x='260' y='170' font-size='10' fill='%230f766e'%3EJun%3C/text%3E%3Ctext x='300' y='170' font-size='10' fill='%230f766e'%3EJul%3C/text%3E%3Ctext x='340' y='170' font-size='10' fill='%230f766e'%3EAug%3C/text%3E%3C/svg%3E",
         "description": "Automated the extraction of meteorological data from APIs and developed interactive visualizations for temperature, geolocation, and weather trends using Python.",
         "year": 2024
     }
