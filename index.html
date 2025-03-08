@@ -791,6 +791,33 @@ nav a.current::after {
       transform-origin: 0 0;
       z-index: -1;
   }
+
+  .visitor-counter {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 10px 15px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  font-size: 14px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: transform 0.3s ease;
+}
+
+.visitor-counter:hover {
+  transform: translateY(-5px);
+}
+
+.counter-number {
+  font-weight: bold;
+  color: var(--accent-color);
+  font-size: 16px;
+}
   </style>
 </head>
 <body>
@@ -900,8 +927,44 @@ nav a.current::after {
     </div>
   </section>
 
+  <section> 
+    <div class="visitor-counter">
+      <span>You are visitor #</span>
+      <span id="visitorCount" class="counter-number">1337</span>
+    </div>
+  </section>
+  
+
   <script src="global.js" type="module"></script>
   <script src="index.js" type="module" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const countElement = document.getElementById('visitorCount');
+      
+      // Use localStorage to simulate visitor count
+      function getVisitorCount() {
+        if (typeof(Storage) !== "undefined") {
+          let count = localStorage.getItem('visitorCount');
+          
+          if (!count) {
+            // Start with a random realistic number
+            count = Math.floor(Math.random() * 500) + 800;
+          } else {
+            // Increment for returning visitors
+            count = parseInt(count) + 1;
+          }
+          
+          localStorage.setItem('visitorCount', count);
+          return count;
+        } else {
+          return 1337;
+        }
+      }
+      
+      // Update the counter
+      countElement.textContent = getVisitorCount().toLocaleString();
+    });
+  </script>
 
   <!-- <script>
 
