@@ -125,8 +125,8 @@ function generateCommitStory(commit, index, allCommits) {
     // Determine if this is the first commit
     const isFirstCommit = index === 0;
     const commitMessage = isFirstCommit ? 
-        'my first commit, and it was glorious' : 
-        'another glorious commit';
+        'my first commit' : 
+        'another commit';
     
     // Format the date exactly as shown in screenshot
     const dateFormatted = commit.datetime.toLocaleString("en-US", {
@@ -141,7 +141,7 @@ function generateCommitStory(commit, index, allCommits) {
     });
     
     // Return the formatted story text
-    return `On ${dateFormatted}, I made <a href="${commit.url}" target="_blank">${commitMessage}</a>. I edited ${commit.totalLines} lines. Then I looked over all I had made, and I saw that it was very good.`;
+    return `On ${dateFormatted}, I made <a href="${commit.url}" target="_blank">${commitMessage}</a>. I edited ${commit.totalLines} lines. Don't know if this fixes everything but hopefully it's a good step in the right direction.`;
 }
 
 // Updated renderGraphItems function to show commits in chronological order
