@@ -388,6 +388,53 @@
       transform-origin: 0 0;
       z-index: -1;
     }
+
+    .floating-resume-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 99;
+  }
+  
+  .resume-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .resume-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  }
+  
+  .resume-icon {
+    font-size: 18px;
+  }
+  
+  .resume-text {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Animation for attention */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Apply animation when page loads */
+  .floating-resume-button {
+    animation: pulse 2s ease infinite;
+  }
     </style>
 </head>
 <body>
@@ -444,6 +491,13 @@
     <div class="projects">
       <!-- Projects will be dynamically loaded here -->
     </div>
+  </div>
+
+  <div class="floating-resume-button">
+    <a href="../RohanSVasudevLatest.pdf" class="resume-btn" download>
+      <span class="resume-icon">📄</span>
+      <span class="resume-text">Resume</span>
+    </a>
   </div>
 
   <script src="../global.js" type="module"></script>
