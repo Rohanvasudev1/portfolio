@@ -1,408 +1,4 @@
-<!-- <!DOCTYPE html>
-<html lang="en" class="home">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohan Vasudev: Personal Site and Portfolio</title>
-    <link rel="stylesheet" href="/portfolio/style.css" />
-    <style>
-        
-        body {
-            margin: 8px;
-            display: block;
-            max-width: 100ch;
-            padding: 20px;
-            margin-inline: max(1em, (100% - 100ch) / 2);
-            background-color: var(--background-color);
-            color: var(--text-color);
-        }
 
-        h1 {
-            text-align: center;
-        }
-        h2 {
-            text-align: center;
-        }
-
-
-        p {
-            text-align: center;
-        }
-
-        .github-stats-section {
-      margin: 40px auto;
-      max-width: 800px;
-      
-
-    }
-    
-    .github-stats-header {
-      text-align: center;
-      margin-bottom: 25px;
-      position: relative;
-    }
-    
-    .github-stats-header h2 {
-      font-size: 1.2rem;
-      display: inline-block;
-      padding-bottom: 5px;
-      border-bottom: 3px solid #3498db;
-    }
-    
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      background-color: var(--background-color);
-      
-    }
-    
-    @media (max-width: 768px) {
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        background-color: var(--background-color);
-        
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .stats-grid {
-        grid-template-columns: 1fr;
-        background-color: var(--background-color);
-        
-      }
-    }
-    
-    .stat-item {
-      background-color: var(--background-color);
-      border-radius: 8px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      
-    }
-
-    
-    .stat-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      background-color: var(--background-color);
-
-    }
-
-    
-    .stat-label {
-      font-size: 0.85rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-      
-      background-color: var(--background-color);
-    }
-    
-    .stat-value {
-      font-size: 2.2rem;
-      font-weight: bold;
-      color: #3498db;
-      background-color: var(--background-color);
-    }
-
-    .section {
-  margin: 50px auto;
-  max-width: 800px;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 30px;
-  position: relative;
-}
-
-.section-header h2 {
-  font-size: 1.3rem;
-  display: inline-block;
-  padding-bottom: 5px;
-  border-bottom: 3px solid #3498db;
-}
-
-
-        #github-profile {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        #profile-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 20px;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .stat {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: Arial, sans-serif;
-        }
-
-        .label {
-            font-size: 14px;
-            font-weight: bold;
-            color: var(--text-color);
-            text-transform: uppercase;
-        }
-
-        .value {
-            font-size: 36px;
-            font-weight: bold;
-            background-color: var(--background-color);
-            color: var(--text-color);
-        }
-        .stats {
-            font-family: Arial, sans-serif;
-            margin-top: 20px;
-            }
-
-        .stats dt {
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .stats dd {
-            margin: 0;
-            padding: 0 0 10px;
-        }
-        #summary-stats {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin-top: 20px;
-            padding: 10px;
-            background: var(--background-color);
-            border-radius: 5px;
-            font-family: Arial, sans-serif;
-        }
-
-        .summary-item {
-        text-align: center;
-        }
-
-        .summary-item dt {
-        font-size: 12px;
-        color: gray;
-        text-transform: uppercase;
-        }
-
-        .summary-item dd {
-        font-size: 24px;
-        font-weight: bold;
-        margin: 5px 0;
-        }
-
-        .gridlines line {
-        stroke: #ddd; /* Light gray */
-        stroke-opacity: 0.7;
-        shape-rendering: crispEdges;
-        }
-
-        .gridlines path {
-        stroke-width: 0; /* Hide axis line */
-        }
-
-        .tooltip {
-        position: fixed;
-        
-        left: 1em;
-        background: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 10px;
-        border-radius: 5px;
-        font-size: 14px;
-        display: none; 
-        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3); 
-        backdrop-filter: blur(5px); 
-        pointer-events: none; 
-        transition: opacity 0.2s ease-in-out; 
-        }
-
-        dl.info {
-        transition-duration: 500ms;
-        transition-property: opacity, visibility;
-        }
-
-        /* Hide tooltip smoothly when not hovered */
-        dl.info[hidden]:not(:hover, :focus-within) {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-
-        /* Style the info display */
-        .info {
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 5px;
-        align-items: center;
-        }
-
-        .info dt {
-        font-weight: bold;
-        color: lightgray;
-        }
-
-        .info dd {
-        margin: 0;
-        font-weight: bold;
-        }
-
-        /* Make dots scale smoothly on hover */
-        circle {
-        transition: 200ms;
-        transform-origin: center;
-        transform-box: fill-box;
-        }
-
-        circle:hover {
-        transform: scale(1.5);
-        }
-        circle.selected {
-        fill: #ff6b6b; /* Highlight selected dots in red */
-        }
-
-
-        #commit-link {
-            color: white;
-            text-decoration: none;
-        }
-
-        #commit-link:visited {
-            color: white;
-        }
-
-        @keyframes marching-ants {
-            to {
-                stroke-dashoffset: -8; /* Creates the moving dashed effect */
-            }
-        }
-
-        .selection {
-            fill-opacity: 0.1;  /* Light transparent blue selection */
-            stroke: black;
-            stroke-opacity: 0.7;
-            stroke-dasharray: 5 3;  /* Dotted line effect */
-            animation: marching-ants 2s linear infinite;  /* Moving border */
-        }
-
-        #language-breakdown {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    text-align: center;
-    margin-top: 20px;
-    padding: 10px;
-    background: var(--background-color);
-    border-radius: 5px;
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#language-breakdown dt {
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--text-color);
-    text-transform: uppercase;
-}
-
-#language-breakdown dd {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--primary-color, #ff6b6b); /* Default to red */
-    margin: 5px 0;
-}
-
-#language-breakdown dd span {
-    font-size: 16px;
-    color: gray;
-    display: block;
-    margin-top: 5px;
-}
-        
-    </style>
-</head>
-<body>
-    <h1>Meta</h1>
-
-    <section class="github-stats-section" id="github-profile">
-        <div class="github-stats-header">
-          <h2>My GitHub Stats</h2>
-        </div>
-        
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-label">FOLLOWERS</div>
-            <div class="stat-value" id="followers">Loading...</div>
-          </div>
-          
-          <div class="stat-item">
-            <div class="stat-label">FOLLOWING</div>
-            <div class="stat-value" id="following">Loading...</div>
-          </div>
-          
-          <div class="stat-item">
-            <div class="stat-label">PUBLIC REPOS</div>
-            <div class="stat-value" id="repos">Loading...</div>
-          </div>
-          
-          <div class="stat-item">
-            <div class="stat-label">PUBLIC GISTS</div>
-            <div class="stat-value" id="gists">Loading...</div>
-          </div>
-        </div>
-    </section>
-
-    
-    
-    
-    <h2>Summary</h2>
-
-    <p>The page includes stats about the code of this website</p>
-    <div id="summary-stats"></div>
-
-    <p id="selection-count">No commits selected</p>
-    <h2>Commits by Time of Day</h2>
-    <div id="chart"></div>
-
-    <dl id="commit-tooltip" class="info tooltip">
-        <dt>Commit</dt>
-        <dd>
-          <a href="" id="commit-link" target="_blank"></a>
-        </dd>
-      
-        <dt>Date</dt>
-        <dd id="commit-date"></dd>
-      
-        <dt>Time</dt>
-        <dd id="commit-time"></dd>
-      
-        <dt>Author</dt>
-        <dd id="commit-author"></dd>
-      
-        <dt>Lines Edited</dt>
-        <dd id="commit-lines"></dd>
-      </dl>
-      
-    <dl id="language-breakdown" class="stats"></dl>
-
-    <script src="../global.js" type="module"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script defer src="main.js"></script>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en" class="home">
 <head>
@@ -411,6 +7,8 @@
     <title>Rohan Vasudev: Meta and GitHub Stats</title>
     <link rel="stylesheet" href="/portfolio/style.css" />
     <style>
+
+
     :root {
       --background-color: #f5f5f5;
       --text-color: #121212;
@@ -495,9 +93,9 @@
       margin: 8px;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       display: block;
-      max-width: 100ch;
+      
       padding: 20px;
-      margin-inline: max(1em, (100% - 100ch) / 2);
+      
       background-color: var(--background-color);
       color: var(--text-color);
       position: relative;
@@ -741,15 +339,13 @@
     
     /* Chart Section */
     #chart {
-      margin: 20px auto;
-      max-width: 800px;
-      background-color: var(--card-bg);
-      border-radius: 10px;
-      padding: 25px;
-      backdrop-filter: blur(5px);
-      box-shadow: 0 8px 32px var(--shadow-color);
-      border: 1px solid var(--border-color);
-    }
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  min-height: 400px;
+  padding: 15px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
     
     /* Language Breakdown */
     #language-breakdown {
@@ -804,23 +400,26 @@
     
     /* Tooltip Styles */
     .tooltip {
-      position: fixed;
-      left: 1em;
-      background: var(--card-bg);
-      color: var(--text-color);
-      padding: 15px;
-      border-radius: 10px;
-      font-size: 14px;
-      display: none;
-      box-shadow: 0 8px 32px var(--shadow-color);
-      backdrop-filter: blur(5px);
-      border: 1px solid var(--border-color);
-      pointer-events: none;
-      transition: opacity 0.2s ease-in-out;
-      z-index: 1000;
-    }
-    
-    #commit-link {
+  position: absolute;
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  display: none; /* Start hidden */
+  box-shadow: 0 8px 32px var(--shadow-color);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--border-color);
+  pointer-events: none;
+  z-index: 1000;
+  transition: opacity 0.2s ease;
+}
+
+/* Add this CSS rule to ensure the tooltip is shown when the visible class is applied */
+.tooltip.visible {
+  display: grid !important;
+}
+#commit-link {
       color: var(--accent-color);
       text-decoration: none;
       font-weight: bold;
@@ -866,16 +465,23 @@
     }
     
     /* D3 Selection Styles */
+  @keyframes appear {
+    from {
+      r: 0;
+    }
+  }
+
     circle {
-      transition: 200ms;
+      animation: appear 300ms ease-out;
+      transition: fill-opacity 200ms, stroke 200ms, transform 200ms;
       transform-origin: center;
       transform-box: fill-box;
     }
-    
+
     circle:hover {
       transform: scale(1.5);
     }
-    
+
     circle.selected {
       fill: var(--accent-color);
     }
@@ -908,6 +514,401 @@
       transform-origin: 0 0;
       z-index: -1;
     }
+
+    .section.file-breakdown {
+  max-width: 1800px; /* Increase from the default 800px */
+  width: 95%; /* Use percentage for responsiveness */
+}
+
+/* Make the files container better use the available space */
+
+
+.files {
+  width: 100%;
+  grid-template-columns: minmax(200px, 1fr) 5fr; /* Change 3fr to 5fr to give more space to dots */
+  gap: 10px;
+  margin: 20px 0;
+  max-height: 500px; /* Increase height from 400px to 500px */
+  overflow-y: auto;
+}
+
+.files > div {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.files dt {
+  grid-column: 1;
+  font-weight: normal;
+}
+
+.files dd {
+  grid-column: 2;
+  margin: 0;
+  text-align: right;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.files code {
+  font-family: monospace;
+  font-size: 0.9em;
+  background-color: var(--stats-item-bg);
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.files dt code {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.files dt small {
+  display: block;
+  font-size: 0.8em;
+  opacity: 0.7;
+  font-weight: normal;
+}
+
+.files dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+.line {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  /* Remove the fixed background color */
+  border-radius: 50%;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.line:hover {
+  transform: scale(1.5);
+  opacity: 0.8;
+}
+
+:global(body) {
+  max-width: min(120ch, 80vw);
+}
+
+#scrollytelling {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  margin: 40px auto;
+}
+
+.scrollytelling-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 40px auto;
+}
+
+.scroll-container {
+  position: relative;
+  width: 95%;
+  height: 350px;
+  overflow-y: scroll;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  margin-bottom: 20px;
+}
+
+.spacer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none; /* transparent */
+  pointer-events: none;
+}
+
+.items-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.files-container {
+  width: 100%;
+  overflow: visible;
+}
+
+/* .item {
+  position: absolute;
+  width: 100%;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  transition: background-color 0.3s ease;
+  min-height: 40px;
+} */
+
+.item:hover {
+  background-color: var(--stats-item-bg);
+}
+
+.full-width {
+  width: 70vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.full-bleed {
+  /* Use 90% of the viewport width */
+  width: 90vw;
+  max-width: none;
+  
+  /* Position so it "breaks out" of the body’s max-width container */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  /* Negative margins must be half of the width above */
+  /* margin-top : -45vw; */
+  margin-left: -45vw;
+  margin-right: -45vw;
+
+  /* Optional padding inside the section */
+  padding: 0 1rem;
+}
+
+.commit-story {
+  font-size: 0.9rem;
+  margin-top: 5px;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+
+/* Fix section header */
+
+
+/* Fix scrollytelling container */
+
+  
+  /* Fix for full-bleed class */
+  .full-bleed {
+    width: 100% !important;
+    max-width: 1400px !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    margin: 50px auto !important;
+    padding: 0 !important;
+  }
+
+  .item {
+    position: absolute;
+    width: 100%;
+    padding: 22px 25px !important;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e9ecef;
+    background-color: #f8f9fa !important;
+    transition: background-color 0.3s ease;
+    min-height: auto !important;
+    cursor: pointer;
+    left: 0;
+  }
+  
+  .item p {
+    margin: 0;
+    text-align: left;
+    padding: 0;
+    line-height: 1.5;
+    font-size: 16px;
+    color: #212529;
+  }
+  
+  .item a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .item a:hover {
+    text-decoration: underline;
+  }
+  
+  /* No transformation effects on hover to match screenshot */
+  .item:hover {
+    transform: none !important;
+    background-color: #e9ecef !important;
+  }
+  
+  /* Clean container styling */
+  #graph-scrollytelling, #files-scrollytelling {
+    padding: 0 !important;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background-color: white;
+  }
+  
+  #graph-items, #files-items {
+    padding: 0 !important;
+  }
+  
+  /* Scrollbar styling to match modern browsers */
+  .scroll-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .scroll-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  .scroll-container::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+    border-radius: 10px;
+    border: 2px solid #f1f1f1;
+  }
+  
+  /* Section header styling */
+  .section-header h2 {
+    font-size: 2.2rem !important;
+    text-align: left !important;
+    margin-bottom: 1rem !important;
+    border-bottom: none !important;
+    color: var(--accent-color);
+  }
+  
+  /* Better scrollbar styling */
+  .scroll-container::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .scroll-container::-webkit-scrollbar-track {
+    background: var(--card-bg);
+    border-radius: 10px;
+  }
+  
+  .scroll-container::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    border: 3px solid var(--card-bg);
+  }
+  
+  /* Enhanced section styling */
+  .section-header h2 {
+    font-size: 2.2rem !important;
+    margin-bottom: 0.8em !important;
+    text-align: left !important;
+    display: block !important;
+    color: var(--accent-color);
+    font-weight: 700;
+  }
+  
+  .section-header p {
+    text-align: left;
+    margin-bottom: 25px;
+    color: var(--text-color);
+    opacity: 0.8;
+  }
+  
+  /* Fix grid layout for better spacing */
+  #commits-visualization, #files-visualization {
+    display: grid;
+    grid-template-columns: 500px 1fr !important;
+    gap: 40px !important;
+  }
+  
+  @media (max-width: 1200px) {
+    #commits-visualization, #files-visualization {
+      grid-template-columns: 400px 1fr !important;
+      gap: 30px !important;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    #commits-visualization, #files-visualization {
+      grid-template-columns: 1fr !important;
+      gap: 30px !important;
+    }
+  }
+
+  .files {
+    display: grid;
+    width: 100%;
+    grid-template-columns: minmax(200px, 1fr) 5fr;
+    gap: 10px;
+  }
+  
+  /* Make sure the dots have enough space */
+  .files dd {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15em;
+    padding-top: 0.6em;
+  }
+  
+  /* Ensure the dots are visible */
+  .line {
+    width: 0.5em;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    #files-visualization {
+      grid-template-columns: 1fr 400px !important;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    #files-visualization {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  #language-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    text-align: center;
+  }
+  
+  #language-breakdown dt {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+  
+  #language-breakdown dd {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Remove the old language breakdown heading */
+  .section-header + #language-breakdown,
+  .section-header:has(+ #language-breakdown) {
+    display: none;
+  }
+
+
     </style>
 </head>
 <body>
@@ -977,15 +978,63 @@
   </section>
 
   <p id="selection-count">No commits selected</p>
+  <p id="selection-count">Hover for more details</p>
   
-  <section class="section">
-    <div class="section-header">
-      <h2>Commits by Time of Day</h2>
+  <!-- First section: Graph and Scrollytelling -->
+  <!-- First section: Graph and Scrollytelling -->
 
-      <p>Select for more details</p>
+  <section class="section" style="max-width: 1400px; width: 95%; margin: 50px auto;">
+    <div class="section-header">
+      <h2 style="font-size: 2.2rem; text-align: left;">Commits by Time of Day</h2>
     </div>
-    <div id="chart"></div>
+  
+    <div id="commits-visualization" style="display: grid; grid-template-columns: 500px 1fr; gap: 40px; margin-bottom: 20px;">
+      <!-- Left side: scrollable commit history with gray background items -->
+      <div id="graph-scrollytelling" class="scroll-container" style="height: 650px; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 10px; background-color: white; width: 100%; position: relative; padding: 0;">
+        <!-- Spacer for virtual scrolling -->
+        <div id="graph-spacer" class="spacer"></div>
+        
+        <!-- Container for commit items - no padding to match screenshot -->
+        <div id="graph-items" class="items-container" style="padding: 0;"></div>
+      </div>
+      
+      <!-- Right side: chart visualization with language breakdown below it -->
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div id="chart" style="min-height: 550px; width: 100%; padding: 20px; border-radius: 10px; box-shadow: 0 8px 32px var(--shadow-color); border: 1px solid var(--border-color);"></div>
+        
+        <!-- Language breakdown in a more compact format -->
+        <div style="background-color: var(--card-bg); border-radius: 10px; padding: 15px; box-shadow: 0 4px 8px var(--shadow-color); border: 1px solid var(--border-color);">
+          <h3 style="font-size: 1.2rem; color: var(--accent-color); margin-bottom: 10px; text-align: left;">Language Breakdown</h3>
+          <p> Drag the mouse over the graph to select multiple circles and obtain language breakdown insights</p>
+          <dl id="language-breakdown" class="stats" style="margin: 0; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));"></dl>
+
+        </div>
+      </div>
+    </div>
   </section>
+  
+  <!-- Second section: File Visualization and Scrollytelling with improved layout -->
+  <!-- Updated File Breakdown section with swapped layout -->
+  <section class="section" style="max-width: 1400px; width: 95%; margin: 50px auto;">
+    <div class="section-header">
+      <h2 style="font-size: 2.2rem; text-align: left;">File Breakdown</h2>
+      <p style="font-size: 1.1rem; margin-top: 10px; text-align: left;">Explore how files evolved over time</p>
+    </div>
+  
+    <div id="files-visualization" style="display: grid; grid-template-columns: 1fr 500px; gap: 40px; margin-bottom: 30px;">
+      <!-- Left side: Files container (formerly on the right, preserving the same width) -->
+      <div class="files-container" style="min-height: 600px; background-color: var(--card-bg); border-radius: 10px; padding: 30px; border: 1px solid var(--border-color); box-shadow: 0 4px 8px var(--shadow-color); overflow-y: auto; width: 100%;">
+        <dl class="files"></dl>
+      </div>
+      
+      <!-- Right side: Scrollable commit history (formerly on the left, preserving the width) -->
+      <div id="files-scrollytelling" class="scroll-container" style="height: 600px; overflow-y: auto; border: 1px solid var(--border-color); border-radius: 10px; background-color: var(--card-bg); width: 100%;">
+        <div id="files-spacer" class="spacer"></div>
+        <div id="files-items" class="items-container" style="padding: 0;"></div>
+      </div>
+    </div>
+  </section>
+
 
   <dl id="commit-tooltip" class="info tooltip">
     <dt>Commit</dt>
@@ -1006,16 +1055,12 @@
     <dd id="commit-lines"></dd>
   </dl>
     
-  <section class="section">
-    <div class="section-header">
-      <h2>Language Breakdown</h2>
-    </div>
-    <dl id="language-breakdown" class="stats"></dl>
-  </section>
+  
 
   <script src="../global.js" type="module"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script defer src="main.js"></script>
+  
 
   
 </body>
