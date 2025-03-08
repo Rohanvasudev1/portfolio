@@ -1,150 +1,4 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rohan S Vasudev: Projects</title>
 
-
-  <link rel="stylesheet" href="/portfolio/style.css" />
-
-  
-  <style>
-     
-    
-    body {
-      background-color: var(--background-color);
-      color: var(--text-color);
-      font-family: sans-serif;
-    }
-
-    
-    .content-wrapper {
-      max-width: 1000px; 
-      margin: 0 auto;    
-      padding: 2rem;     
-    }
-
-    h1, .intro-text {
-      text-align: left;
-      margin: 0 0 1rem;
-    }
-
-    .intro-text {
-      font-size: 1.5em;
-      font-weight: bold;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1em;
-      margin-top: 2rem;
-    }
-
-    .projects article {
-      padding: 30px;
-      border-radius: 8px; 
-      background-color: var(--background-color);
-      color: var(--text-color);
-    }
-
-    .projects img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin-bottom: 10px;
-      border-radius: 8px;
-    }
-
-    
-.chart-container {
-  display: flex;
-  align-items: center; 
-  justify-content: space-between; 
-  gap: 1rem; 
-  max-width: 700px; 
-
-}
-
-
-#legend {
-  flex: 1; 
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  padding: 20px;
-}
-
-
-#projects-plot {
-  width: 300px; 
-  height: 300px; 
-}
-
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  font-size: 0.9rem;
-}
-
-.legend-color {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%; 
-  margin-right: 0.5rem;
-}
-.searchBar {
-  display: block;
-  width: 100%;
-  max-width: 400px;
-  padding: 10px;
-  margin: 20px auto;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.search-container {
-    display: flex;
-    justify-content: center;
-    margin: 10px 0;
-  }
-      
-    
-  </style>
-</head>
-<body>
-
-  <div class="content-wrapper">
-    <h1 class="projects-title">Projects</h1>
-    <p class="intro-text">Explore some of the projects I've worked on.</p>
-
-    <div class="chart-container">
-        <svg id="projects-plot">
-          <g></g>
-        </svg>
-        
-        <div id="legend"></div>
-      </div>
-      <input
-      class="searchBar"
-      type="search"
-      aria-label="Search projects"
-      placeholder="🔍 Search projects…"
-    />
-    
-    <div class="projects">
-      
-    </div>
-  </div>
-
-  <script src="../global.js" type="module"></script>
-  <script src="projects.js" type="module" defer></script>
-  
-</body>
-</html> -->
 
 
 <!DOCTYPE html>
@@ -406,19 +260,35 @@
     
     /* Chart Container */
     .chart-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-      max-width: 800px;
-      margin: 30px auto;
-      background-color: var(--card-bg);
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 8px 32px var(--shadow-color);
-      border: 1px solid var(--border-color);
-      backdrop-filter: blur(5px);
-    }
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.chart-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+@media (max-width: 768px) {
+  .chart-content {
+    flex-direction: column;
+  }
+}
+
+.chart-visual {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.legend-container {
+  flex: 1;
+  min-width: 200px;
+}
     
     #projects-plot {
       width: 300px;
@@ -555,11 +425,12 @@
     
     <h2 style="text-align: center; margin-bottom: 20px;"> Projects by Year </h2>
     <div class="chart-container">
-      <svg id="projects-plot">
-        <g></g>
-      </svg>
-      
-      <div id="legend"></div>
+      <div class="chart-content">
+        <div class="chart-visual">
+          <svg id="projects-plot"></svg>
+        </div>
+        <div id="legend" class="legend-container"></div>
+      </div>
     </div>
     
     <div class="search-container">
