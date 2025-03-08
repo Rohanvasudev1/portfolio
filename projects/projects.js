@@ -185,7 +185,7 @@ function renderPieChart(data, animate = false) {
   const colors = d3.scaleOrdinal(customColors);
   
   const svg = d3.select("#projects-plot")
-    .attr("viewBox", "-250 -250 500 500")
+    .attr("viewBox", "-300 -300 600 600")
     .html("");
     
   const g = svg.append("g").attr("transform", "translate(0,0)");
