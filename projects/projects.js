@@ -196,7 +196,7 @@ function renderPieChart(data, animate = false) {
   svg.append("text")
     .attr("text-anchor", "middle")
     .attr("y", -220)
-    .text("Projects by Year")
+
     .style("font-size", "24px")
     .style("font-weight", "bold")
     .attr("fill", "currentColor");
