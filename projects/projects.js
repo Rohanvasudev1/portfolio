@@ -181,7 +181,8 @@ function calculatePercentage(d, data) {
 }
 
 function renderPieChart(data, animate = false) {
-  const colors = d3.scaleOrdinal(d3.schemeTableau10);
+  const customColors = ["#2c3e50", "#3498db", "#1abc9c", "#2980b9", "#16a085", "#34495e", "#2574a9", "#1f3a93"];
+  const colors = d3.scaleOrdinal(customColors);
   
   const svg = d3.select("#projects-plot")
     .attr("viewBox", "-250 -250 500 500")
